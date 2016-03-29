@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp
+}">
+    <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+    <script type="text/javascript" src="style_js/tab.js"></script>
+    <script type="text/javascript" src="style_js/Validform v5.3.2.js"></script>
+    <title>订单详情</title>
+</head>
+<body>
+<div id="wrapper">
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <style type="text/css">section{top: 0px;}</style>
+    <php>
+        }
+        else
+        {
+    </php>
+    <!-- HTML_TOP -->
+    <php>
+        }
+    </php>
+    <section>
+        <div class="smile">
+            <dl>
+                <dt><a href="http://{$u_guid}.u.canpoint.net"><img src="{$avatar_file_url}"></a></dt>
+                <dd>
+                    <a href="http://{$u_guid}.u.canpoint.net">{$u_nick_name}</a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="tabs">
+            <ul>
+                <li><a href="/money/index/index">我的财富</a></li>
+                <li   class="wealth" ><a href="/order/index/index">我的订单</a></li>
+                <li><a href="/payment/recharge/online">财富充值</a></li>
+                <li ><a  href="/change/index/index">财富兑换</a></li>
+                <li><a href="/cash/index/index" style="letter-spacing:2px;">&nbsp优惠券</a></li>
+            </ul>
+        </div>
+        <div class="matter">
+            <div class="big">
+                <div class="wealth_header">
+                    <p class="p1">充值记录</p>
+                    <a href="/payment/recharge/online"><p class="p2">去充值</p></a>
+                    <p class="p3">筛选<img src="style_img/chose_03.png" id="screening"></p>
+                </div>
+                <div class="record">
+                    <ul class="myul1">
+                        <li class="li1">卡号/订单号</li>
+                        <li class="li2">金额</li>
+                        <li class="li3">全品币/券</li>
+                        <li class="li4">时间</li>
+                    </ul>
+                    <foreach name='list' item='vo'>
+                        <ul>
+                            <li class="li1">{$vo.k_id}</li>
+                            <li class="li2"><php>echo number_format($vo[k_mianzi],2);</php></li>
+                            <li class="li5"><php>echo number_format($vo[k_mianzi],2);</php></li>
+                            <li class="li4">{$vo.ka_rdate|Timeoptimized=###}</li>
+                        </ul>
+                   </foreach>
+                </div>
+            </div>
+        </div>
+        <!-- 分页 -->
+        <div class="pagelist">
+            <if condition="$page neq ''">
+                <div class="pagelist">
+                    {$page}
+                </div>
+                <else />
+                <!-- 无记录时的状态 -->
+                <div class="noresult">
+                    <img src="style_img/v4_img/noresult.png">
+                    <p>暂无记录</p>
+                </div>
+            </if>
+        </div>
+    </section>
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+<div class="Masking-list">
+    <div class="cover"><img src="style_img/close.png" class="close"></div>
+    <div class="conter-list">
+        <ul class="sidebar-list">
+            <li class="chose">
+                <ul>
+                    <li class="button">充值类型
+                        <img src="style_img/down_11.png">
+                    </li>
+                    <li>
+                        <ul class="dropdown">
+                            <li><a href="/payment/index/index" >全部类型</a></li>
+                            <li><a href="/payment/index/index?ktype=2" >全品劵学习卡</a></li>
+                            <li><a href="/payment/index/index?ktype=1" >全品币学习卡</a></li>
+                            <li><a href="/payment/index/index?ktype=3" >网上充值</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="chose">
+                <ul>
+                    <li class="button">时间
+                        <img src="style_img/down_11.png">
+                    </li>
+                    <li>
+                        <ul class="dropdown">
+                            <li><a href="/payment/index/index" >全部时间</a></li>
+                            <li><a href="/payment/index/index?ttype=1" >最近一个月</a></li>
+                            <li><a href="/payment/index/index?ttype=2">最近三个月</a></li>
+                            <li><a href="/payment/index/index?ttype=3" >今年内</a></li>
+                            <li><a href="/payment/index/index?ttype=4" >{$Date_Y1}</a></li>
+                            <li><a href="/payment/index/index?ttype=5" >{$Date_Y2}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<html>

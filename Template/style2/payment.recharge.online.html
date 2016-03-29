@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp
+}">
+    <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+    <script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="style_js/tab.js"></script>
+    <title>财富充值</title>
+</head>
+<body>
+<div id="wrapper">
+
+
+        <php>
+            if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+            {
+        </php>
+        <style type="text/css">section{top: 0px;}</style>
+        <php>
+            }
+            else
+            {
+        </php>
+        <!-- HTML_TOP -->
+        <php>
+            }
+        </php>
+    <section>
+        <div class="smile">
+            <dl>
+                <dt><a href="http://{$u_guid}.u.canpoint.net"><img src="{$avatar_file_url}"></a></dt>
+                <dd>
+                    <a href="http://{$u_guid}.u.canpoint.net">{$u_nick_name}</a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="tabs">
+            <ul>
+                <li><a href="/money/index/index">我的财富</a></li>
+                <li><a href="/order/index/index">我的订单</a></li>
+                <li class="wealth" ><a href="/payment/recharge/online">财富充值</a></li>
+                <li><a  href="/change/index/index">财富兑换</a></li>
+                <li><a href="http://pay.canpoint.net/cash/index/index" style="letter-spacing:2px;">&nbsp优惠券</a></li>
+            </ul>
+        </div>
+        <div class="matter">
+            <div class="big">
+                <div class="tab_2">
+                    <ul>
+                        <li><a href="/payment/recharge/online">在线充值</a></li>
+                        <li class="pay"><a  href="/payment/recharge/card">学习卡充值</a></li>
+                    </ul>
+                </div>
+                <div class="recharge_fm">
+                    <form action="/payment/recharge/recharge" method="post" class="payChkForm" >
+                        <div class="fm_item">
+                            <label>充值类型</label>
+                            <span class="toggle_btn crt">给自己充值</span>
+                            <span class="toggle_btn">给他人充值</span>
+                        </div>
+                        <div class="fm_item" style="clear:both;">
+                            <label>充值帐号</label>
+                            <div class="account">
+                                <strong class="uacc">{$uid}</strong>
+                                <input type="hidden" name="guid" value="100172192">
+                                <a>（{$u_nick_name}）</a>
+                            </div>
+                            <div class="account" style="display:none">
+                                <input type="text" name="account" ajaxurl="/payment/index/ajaxGetUname" class="fm_ipt ipt_length" placeholder="请输入需要充值的帐号" autocomplete="off" datatype="e | /^1\d{10}$/ | /^[a-z0-9]{4,20}$/"  nullmsg="亲，一定要输入帐号哦" errormsg="亲，此帐号不存在啊" sucmsg=" ">
+                                <!--  <a href="">（微笑天使）</a> -->
+                            </div>
+                        </div>
+                        <div class="fm_item type_item">
+                            <label>充值金额</label>
+                            <span class="type">10元</span>
+                            <span class="type">20元</span>
+                            <span class="type">50元</span>
+                            <span class="type" style="margin-left:25%;">100元</span>
+                            <span class="type">200元</span>
+                            <span class="type other">其他</span>
+                        </div>
+                        <div class="fm_item other_item">
+                            <label>输入数额</label>
+                            <input type="text" name="money"  class="fm_ipt other_ipt" autocomplete="off" datatype="/^([1-9]\d*(\.\d{1,2})?|(0\.\d{1,2}))$/"  nullmsg="亲，充值金额是空的哦" errormsg="" sucmsg=" ">
+                            <span class="Validform_checktip"></span>
+                        </div>
+						<if condition="$hb_list neq ''">
+							<div class="fm_item packet_item">
+								<label>可使用红包</label>
+								<div class="redpack">
+									<foreach name="hb_list" item="hb_item">
+										<span class="type" attr="{$hb_item.id}" money="{$hb_item.money}">{$hb_item.money}元</span>
+									</foreach>
+ 								</div>
+							</div>
+							<input type="hidden" id="hb_id" name="hb_id" value="0" />
+						</if>
+                        <div class="fm_item fm_item_short coin_item">
+                            <!-- <label style="width:26%;">获得全品币</label> -->
+                            <label>获得全品币</label>
+                            <strong class="coin">10.00</strong>元
+                            <input type="hidden" id="coin_hdipt" value="10.00" name="coin">
+                        </div>
+                        <div class="fm_item fm_item_short payment_item">
+                            <label>还需支付</label>
+                            <strong class="coin payment">0.00</strong>元
+                            <input type="hidden" id="payment_hdipt" value="0.00" name="payment">
+                        </div>
+                        <div class="fm_item fm_item_short">
+                            <label>支付通道</label>
+                            <span class="paytype"><input type="radio" name="paytype" value="1" checked="checked">支付宝支付</span>
+                            <!-- <span class="paytype"><input type="radio" name="paytype" value="2" >银联支付</span><br>
+                            <em class="tips">（支持网上银行、手机银行；储蓄卡、信用卡均可支付）</em> -->
+                        </div>
+                        <div class="fm_item">
+                            <!-- <p class="btn">下一步</p> -->
+                            <input type="submit" value="下一步" class="btn">
+                            <a href="/payment/index/index" style="margin-top:0.7em;margin-right:4em;">查看充值记录</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="tip">
+                    <h2>充值说明</h2>
+                    <p>1.如您习惯使用支付宝，可使用”支付宝支付“，可立即到账。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+</body>
+<html>

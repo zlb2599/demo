@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>我的财富_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">我的财富</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+                <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay crt_pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <div class="my_pay_lst pay_lst_top">
+                    <h2 class="pay_tt">财富总览 <a href="http://help.canpoint.net/home/faq/6.html" target="_blank" class="pay_links">财富有什么用？</a></h2>
+                    <ul>
+                        <li>
+                            <div class="pay_lst_l">
+                                <img src="style_img/v4_img/pay2.png">
+                            </div>
+                            <div class="pay_lst_r">
+                                <span>全品币</span>
+                                <strong>{$u_user_rpoint}</strong>
+                                <a href="/payment/recharge/online" class="btn btn20">充值</a>
+                                <a href="/money/myrpoint/index" class="link">详情</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="pay_lst_l">
+                                <img src="style_img/v4_img/pay3.png">
+                            </div>
+                            <div class="pay_lst_r">
+                                <span>全品豆</span>
+                                <strong>{$u_user_qdou}</strong>
+                                <a href="/change/index/index">兑换</a>
+                                <a href="/money/mydou/index" class="link">详情</a>
+                            </div>
+                        </li>
+                        <li style="margin:0px;">
+                            <div class="pay_lst_l">
+                                <img src="style_img/v4_img/pay4.png">
+                            </div>
+                            <div class="pay_lst_r">
+                                <span>全品券</span>
+                                <strong>{$u_user_fpoint}</strong>
+                                <a href="/payment/recharge/card" class="btn btn20">充值</a>
+                                <a href='/money/myfpoint/index' class="link">详情</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pay_line"></div>
+                <div class="my_pay_lst pay_lst_bottom">
+                    <h2 class="pay_tt">相关动态</h2>
+                    <ul>
+                        <li>
+                            <a href="/payment/index/index" class="pay_link"><i class="pay_icon"></i>充值记录</a>
+                        </li>
+                        <li style="margin-right:0px;">
+                            <a href="/change/index/lists" class="pay_link exchange"><i class="pay_icon"></i>兑换记录</a>
+                        </li>
+
+<!--                        <if condition="$cartnums neq 0">
+                             购物车有课时状态 
+                            <li>
+                                <a href="/shopcart/index/index" class="pay_link car"><i class="pay_icon"><strong>{$cartnums}</strong></i>我的购物车</a>
+                                <span class="order_tips">亲，您的购物车里有东西哦！<a href="/shopcart/index/index" class="btn btn15">去看看</a></span>
+                            </li>
+                            <else />
+                            <li>
+                                <a href="/shopcart/index/index" class="pay_link car"><i class="pay_icon"></i>我的购物车</a>
+                                <span class="order_tips">亲，去看看有没有感兴趣的课程。<a href="http://wk.canpoint.net" class="btn btn15">去找课</a></span>
+                            </li>
+                        </if>-->
+                        <if condition="$nopay eq 0">
+                            <li style="margin-right:0px;">
+                                <a href="/order/index/index" class="pay_link order"><i class="pay_icon"></i>我的订单</a>
+                                <span class="order_tips">亲，去看看有没有感兴趣的课程。<a href="http://wk.canpoint.net" class="btn btn15">去找课</a></span>
+                            </li>
+                            <else />
+                            <li style="margin-right:0px;">
+                                <a href="/order/index/index" class="pay_link order"><i class="pay_icon"><strong>{$nopay}</strong></i>我的订单</a>
+                                <span class="order_tips">亲，您有未完成的订单！<a href="/order/index/index" class="btn btn15">去看看</a></span>
+                            </li> 
+                        </if>
+                    </ul>
+                </div>
+                <div class="pay_line"></div>
+                <div class="warms_tips">
+                    <h3>温馨提示</h3>
+                    <p>1.全品币获得方式：在线充值&全品币学习卡充值</p>
+                    <p>2.全品券获得方式：全品券学习卡充值</p>
+                    <p>3.全品币、全品券的充值操作仅在全品学堂进行</p>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+
+    <!-- end底部信息 -->	
+</body>
+</html>

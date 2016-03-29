@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no, email=no">
+	    <meta name="x5-orientation" content="portrait">
+	    <meta name="full-screen" content="yes">
+	    <meta name="x5-fullscreen" content="true">
+	    <meta name="browsermode" content="application">
+	    <meta name="x5-page-mode" content="app">
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp}">
+        <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp}">
+        <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+        <script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+        <script type="text/javascript" src="style_js/tab.js"></script>
+        <title>财富中心-我的优惠券-已过期</title>
+        <script>
+            $(function(){
+               /* $(".coupon_state ul li").on("click",function(){
+                    var index=$(this).index();
+                    alert(index);
+                    $(".coupon_state ul li").removeClass('cur');
+                    $(this).addClass('cur');
+                });*/
+            })
+        </script>
+    </head>
+    <body style="background:#f6f6f6">
+        <div id="wrapper">
+            <!-- 微信分享开始 -->
+            <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+            <script>
+                wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: '{$weixin_data.appId}', // 必填，公众号的唯一标识
+                            timestamp: {$weixin_data.timestamp}, // 必填，生成签名的时间戳
+                        nonceStr: '{$weixin_data.nonceStr}', // 必填，生成签名的随机串
+                        signature: '{$weixin_data.signature}',// 必填，签名，见附录1
+                        jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+                wx.ready(function(){
+                    //分享到朋友圈
+                    wx.onMenuShareTimeline({
+                        title: '全品学堂财富首页', // 分享标题
+                        link: 'http://e.canpoint.net', // 分享链接
+                        imgUrl: 'http://img1.canpoint.net/g1/M00/09/DB/oYYBAFXdheOAFytrAAA3u1KDE_c846.png', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+
+                        }
+                    });
+                    //分享给朋友
+                    wx.onMenuShareAppMessage({
+                        title: '全品学堂财富首页', // 分享标题
+                        desc: '全品学堂财富首页', // 分享描述
+                        link: 'http://e.canpoint.net', // 分享链接
+                        imgUrl: 'http://img1.canpoint.net/g1/M00/09/DB/oYYBAFXdheOAFytrAAA3u1KDE_c846.png', // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //分享到QQ
+                    wx.onMenuShareQQ({
+                        title: '', // 分享标题
+                        desc: '', // 分享描述
+                        link: '', // 分享链接
+                        imgUrl: '', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+                });
+            </script>
+            <!-- 微信分享结束 -->
+            <header>
+                <div class="left"></div>
+                <div class="middle">财富中心</div>
+                <div class="right"><a href="http://my.canpoint.net" ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a></div>
+            </header>
+            <section>
+                <div class="coupon">
+                    <h3 class="coupon_my">我的优惠券</h3>
+                    <div class="coupon_state">
+                        <ul>
+                            <li><a href="">未使用(0)</a></li>
+                            <li class="cur"><a href="">已过期(3)</a></li>
+                            <li><a href="">已使用(0)</a></li>
+                        </ul>
+                    </div>
+                    <div class="coupon_cash past_due">
+                        <ul>
+                            <li class="coupon_size">
+                                <p class="privilege grey">￥<em class="cash">10</em></p>
+                                <p class="grey">满20可用</p>
+                            </li>
+                            <li class="coupon_details">
+                                <h3 class="coupon_title grey">现金券</h3>
+                                <p>期中专题微课,当笔订单金额满20元可用</p>
+                            </li>
+                        </ul>
+                        <p class="validity">
+                            有效期至：<span class="time">2015-11-20 15:56:58</span>
+                        </p>
+                    </div>
+                    <div class="coupon_cash past_due">
+                        <ul>
+                            <li class="coupon_size">
+                                <p class="privilege grey">￥<em class="cash">20</em></p>
+                                <p class="grey">满40可用</p>
+                            </li>
+                            <li class="coupon_details">
+                                <h3 class="coupon_title grey">现金券</h3>
+                                <p>期中专题微课,当笔订单金额满40元可用</p>
+                            </li>
+                        </ul>
+                        <p class="validity">
+                            有效期至：<span class="time">2015-11-20 15:56:58</span>
+                        </p>
+                    </div>
+                    <div class="coupon_cash past_due">
+                        <ul>
+                            <li class="coupon_size">
+                                <p class="privilege grey">￥<em class="cash">100</em></p>
+                                <p class="grey">满200可用</p>
+                            </li>
+                            <li class="coupon_details">
+                                <h3 class="coupon_title">现金券</h3>
+                                <p>期中专题微课,当笔订单金额满200元可用</p>
+                            </li>
+                        </ul>
+                        <p class="validity">
+                            有效期至：<span class="time">2015-11-20 15:56:58</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="no-coupon">
+                    <dl>
+                        <dt><img src="style_img/coupon_logo.png"></dt>
+                        <dd>
+                            <p>暂时没有优惠券</p>
+                            <a href="">去活动页看看</a>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+
+            <include file="./Template/style2/ainc.foot.html"/>
+        </div>
+    </body>
+    <html>

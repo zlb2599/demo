@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>充值记录_财富充值_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">财富充值</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+                <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge crt_pay"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <div class="order_lst">
+                    <h2 class="order_tt">充值记录</h2>
+                    <div class="order_status">
+                        <div class="order_status_r">
+                            <form action="/payment/index/index" method="post">
+                                <input type="text" name="key" class="ipt sch_ipt" placeholder="充值卡号/在线支付编号">
+                                <input type="submit" value=" " class="sch_btn">
+                            </form>
+                            <a href="/payment/recharge/online" class="recycle_btn">去充值</a>
+                        </div>
+                    </div>
+                    <div class="pay_tb">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="180">充值卡号/在线支付编码</th>
+                                    <th width="120">充值金额（元）</th>
+                                    <th width="120">获得全品币</th>
+                                    <th width="120">获得全品券</th>
+                                    <th width="150">
+                                        <select name="status" class="fm_sel status_sel">
+                                            <option value="/payment/index/index" checked="checked">全部类型</option>
+                                            <option value="/payment/index/index?ktype=2" <if condition="$ktype eq 2">selected </if> >全品券学习卡</option>
+                                            <option value="/payment/index/index?ktype=1" <if condition="$ktype eq 1">selected </if>>全品币学习卡</option>
+                                            <option value="/payment/index/index?ktype=3" <if condition="$ktype eq 3">selected </if> >网上充值</option>
+                                        </select>
+                                    </th>
+                                    <th width="150">
+                                        <select name="buytime" class="fm_sel time_sel">
+                                            <option value="/payment/index/index?ttype=1" <if condition="$ttype eq 1">selected </if> >最近一个月</option>
+                                            <option value="/payment/index/index?ttype=2" <if condition="$ttype eq 2">selected </if>>最近三个月</option>
+                                            <option value="/payment/index/index?ttype=3" <if condition="$ttype eq 3">selected </if>>今年内</option>
+                                            <option value="/payment/index/index?ttype=4" <if condition="$ttype eq 4">selected </if>>{$Date_Y1}</option>
+                                            <option value="/payment/index/index?ttype=5" <if condition="$ttype eq 5">selected </if>>{$Date_Y2}</option>
+                                        </select>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <foreach name='list' item='vo'>
+                                <tr>
+                                    <td>{$vo.k_id}</td>
+                                    <td><php>echo number_format($vo[k_mianzi],2);</php></td>
+                                <td><span class="yellow"><if condition="($vo['k_type'] eq 1) or ($vo['k_type'] eq 3)"><php>echo number_format($vo[k_mianzi],2);</php></if></span></td>
+                                <td><span class="blue"><if condition="$vo['k_type'] eq 2"><php>echo number_format($vo[k_mianzi],2);</php></if></span></td>
+                                <td><if condition="$vo['k_type'] eq 1">全品币充值 <elseif condition="$vo['k_type'] eq 2"/>全品券充值<elseif condition="$vo['k_type'] eq 3"/>网上充值</if></td>
+                                <td>{$vo.ka_rdate}</td>
+                                </tr>
+                            </foreach>
+                            </tbody>
+                        </table>
+                        <div class="page" style="margin-bottom:10px;">
+                            <if condition="$page neq ''">
+                                <div class="pagelist">
+                                    {$page}
+                                </div>
+                                <else />
+                                <!-- 无记录时的状态 -->
+                                <div class="noresult">
+                                    <img src="style_img/v4_img/noresult.png">
+                                    <p>暂无记录</p>
+                                </div> 
+                            </if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+
+    <!-- end底部信息 -->	
+</body>
+</html>

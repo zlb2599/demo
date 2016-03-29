@@ -1,0 +1,121 @@
+@media screen and (max-width:321px){
+    body{font-size:14px;-webkit-text-size-adjust: none;}
+    input{font-size:14px;}    
+}
+@media screen and (min-width:322px) and (max-width:639px){
+    body{font-size:16px;-webkit-text-size-adjust: none;}
+    input{font-size:16px;}
+}
+@media screen and (min-width:640px) and (max-width:719px){
+    body{font-size:20px;-webkit-text-size-adjust: none;}
+    input{font-size:20px;}
+}
+@media screen and (min-width:720px){
+    body{font-size:22.5px;-webkit-text-size-adjust: none;}
+    input{font-size:22.5px;}
+}
+
+body{width: 100%;font-family: "微软雅黑";background: #efeff4;}
+.wrapper{width: 100%;margin: 0 auto;height: auto;}
+header{height: 44px;background: #2d353c;background-size: 100% 100%;display:-webkit-box;display: -moz-bok;position: fixed;top:0;left:0;right: 0;z-index:1;}
+.left{width:8%;}
+.left img{width: 11px;height: 18px;margin-top: 13px;margin-left: 10px;}
+.left{width:8%;background: url(http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbymaAUA3GAAAEpoJG4GI662.png) no-repeat  center;background-size: 11.5px 20px;}
+.middle{width: 82%;text-align: center;font-size: 1.3em; line-height: 44px;color: #fff;}
+.right,#right{width: 10%;}
+.right img,#right img{width: 25px;height: 25px;margin-top: 9px;margin-right: 10px;}
+section{width: 100%;margin:0 auto;position: absolute;margin-bottom: 6em;top:44px;}
+
+/*实物兑换*/
+.info{width: 100%;margin: 0 auto;}
+.info h3{font-size: 1.1em;line-height: 2.4em;background: #fff;color: #333;text-indent: 15px;clear: both;}
+.order{width: 92%;margin: 0 auto;margin-top: 10px;height:88px;margin-bottom: 10px;}
+.order ul li{float: left;width: 33.3%;display: -webkit-box;-webkit-box-pack:center;-webkit-box-align:center;-webkit-box-orient:vertical;}
+.order_img img{width: 88px;height:88px;}
+.order_name{font-size: 1.1em;color: #757575;padding-top: 5px;}
+.order_num{color: #757575;}
+.dou{font-size: 1.1em;padding-top: 5px;}
+.num{font-size: 0.8em;padding-top: 15px;}
+.message{width: 100%;margin:0 auto;margin-top:10px;clear: both;background: #fff;}
+.fm_item{width: 100%;margin: 0 auto;clear: both;}
+.fm_item label{font-size: 1em;line-height: 3.6em;padding-left: 15px;}
+.fm_item .fm_ipt{border:none;font-size: 1.1em;line-height: 2.4em;width: 76%;margin-left: 10px;background: #efeff4;margin-top: 10px;}
+span.Validform_wrong{background: url(../style_img/exchange/error_03.png) no-repeat 15px center;clear: both;padding-left: 35px;background-size: 13px 13px;}
+.fm_sub{width: 92%;margin: 0 auto;clear: both;}
+.btn{width: 25%;font-family: "[STXihei]";background: #0091ff;display: block;border:none;font-size: 1em;line-height: 2em;color: #fff;margin-top: 10px;text-align: center;margin-left: 80px;}
+/**/
+.user_info{margin-left: 10px;width: 76%;white-space: pre-wrap;float: right;font-size: 1em;line-height: 2.4em;margin-top: 10px;}
+.sub_btn{width: 47%;background: #f79a35;border:none;font-size: 1.1em;line-height: 2.4em;color: #fff;margin-top: 10px;}
+.update_btn{width: 47%;display: block;background: #fff;color: #f79a35;font-size: 1.1em;line-height: 2.4em;border:1px solid #dcdcdc;text-align: center;float: right;margin-top: 10px;}
+/*购买成功*/
+.change_suc{width: 100%;margin: 0 auto;margin-top: 10px;}
+.change_suc h3{font-size: 1.3em;line-height: 3em;color: #79cc2f;text-align: center;background: url(../style_img/exchange/suc_03.png) no-repeat 15px center;background-size: 33.5px 33.5px;}
+.change_suc p{font-size: 1em;line-height: 2em;color: #666;padding-left: 15px;}
+.change_suc p strong{font-size: 1.1em;font-weight: 700;}
+.looked{width: 47%;display: block;background: #f79a35;color: #fff;font-size: 1.1em;line-height: 2.4em;border:1px solid #dcdcdc;text-align: center;float: left;margin-top: 10px;}
+/*分享链接*/
+.shareTo{width: 100%;margin: 0 auto;display: none;z-index: 99;position: fixed;}
+.cover{background:rgba(0,0,0,.7);position: fixed;top: 0;left: 0;right: 0;height: 100%;}
+.bdsharebuttonbox{width: 100%;margin:0 auto;background: #fff;position: fixed;bottom:0;}
+.bdsharebuttonbox a{float: left;width: 33%;display: -webkit-box;-webkit-box-pack:center;-webkit-box-align:center;-webkit-box-orient:vertical;margin-bottom: 0.5em;line-height: 2em;}
+.bdsharebuttonbox a.bds_weixin{background-image: none;background: url(../style_img/exchange/pyq.png) no-repeat 2.8em 0.5em;background-size: 44px 44px;text-align: center;padding-top: 50px;padding-left: 0;margin: 0;}
+.bdsharebuttonbox a.bds_sqq{background-image: none;background: url(../style_img/exchange/qq.png) no-repeat 2.8em 0.5em;background-size: 44px 44px;text-align: center;padding-top: 50px;padding-left: 0;margin: 0;}
+.bdsharebuttonbox a.bds_tsina{background-image: none;background: url(../style_img/exchange/sina.png) no-repeat 2.8em 0.5em;background-size: 44px 44px;text-align: center;padding-top: 50px;padding-left: 0;margin: 0;}
+.bdsharebuttonbox a.bds_qzone{background-image: none;background: url(../style_img/exchange/qzone.png) no-repeat 2.8em 0.5em;background-size: 44px 44px;text-align: center;padding-top: 50px;padding-left: 0;margin: 0;}
+.bdsharebuttonbox a.bds_tqq{background-image: none;background: url(../style_img/exchange/weibo.png) no-repeat 2.8em 0.5em;background-size: 44px 44px;text-align: center;padding-top: 50px;padding-left: 0;margin: 0;}
+/*订单详情*/
+.order_details{width: 100%;margin: 0 auto;}
+.indent{background: #fff;border-bottom:1px solid #d5d5d5;line-height: 2.4em;}
+.order_details h3{font-size: 1.1em;line-height: 2.4em;text-indent: 15px;background: #fff;}
+.order_details p{font-size: 1em;line-height: 2.4em;padding-left: 15px;}
+.order_details p strong{color: #e40022;font-size: 1em;}
+.order_details p span{color: #333;}
+.order_details p a{color: #e40022}
+.order_details h4{font-size: 1em;line-height: 2.4em;padding-left: 15px;float: left;}
+.order_details h4 em{padding-left: 15px;float: right;}
+.order_details h4 strong{padding-left: 15px;float: right;}
+.goods_msg{width: 100%;margin: 0 auto;clear: both;padding-top: 10px;}
+.msg li{float: left;font-size: 1em;line-height: 2.4em;text-indent: 15px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.msg li.title{background: #fff;border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;}
+.name{width: 60%;}
+.name a{color:#02a4ef;left:0;}
+.number{width: 15%;text-align: center;}
+.money{width: 25%;text-align: center;}
+.order_details h3.consignee{margin-top: 10px;}
+.infom label{font-size: 1em;line-height: 2.4em;padding-left: 15px;}
+.infom .fm_ipt{border:none;font-size: 1em;line-height: 2.4em;width: 76%;margin-left: 10px;background: #efeff4;}
+
+footer{width: 100%;background: #fff;height: 50px;position:fixed;bottom: 0;border-top: 1px solid #d2d2d2;}
+footer dl{float: left;width: 20%;display: -webkit-box;-webkit-box-pack:center;-webkit-box-align:center;-webkit-box-orient:vertical;margin-top: 0.7em;}
+footer dl dt img{width: 22px;height:22px;/*margin-left: 1.6em;*/margin-top:-0.3em;}
+footer dl dd{ font-size: 0.9em;padding-top: 0.3em;color: #7a7e83;}
+footer dl dd.col{color: #02a7e1;}
+
+/*翻页样式*/
+.paging{width: 100%;height: 40px;background: #e1e1e1;clear: both;}
+.paging ul li a{float: left;width: 33%;display: -webkit-box;-webkit-box-pack:center;-webkit-box-align:center;-webkit-box-orient:vertical;line-height: 40px;color: #979797;font-size: 1em;}
+.paging ul li a.cur{color: #ff7200;}
+.change_suc{background:#fff;}
+.change_suc h4.fail{color: #333;line-height: 90px;text-align: center;background: url(../style_img/exchange/fail_03.png) no-repeat 8% center;background-size: 33px 33px;}
+.exchange_tips {width: 60%;margin: 60px auto;}
+.exchange_tips i.exchange_icon {
+    width: 50px;
+    height: 72px;
+    display: block;
+    float: left;
+    background: url(../style_img/v4_img/pay10.png) no-repeat 0 0;
+    margin-right: 15px;
+    background-size: 50px 72px;
+}
+.exchange_tips p {
+    font-size: 1.2em;
+    padding-top: 15px;
+    margin-bottom: 8px;
+}
+.exchange_tips a.btn1 {
+    font: 16px/30px "微软雅黑";
+    color: #fff;
+    background-color: #ffa64f;
+    padding: 2px 15px;
+    border-radius: 3px;
+}

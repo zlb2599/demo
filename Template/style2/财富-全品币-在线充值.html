@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style_css/reset.css">
+<link rel="stylesheet" type="text/css" href="style_css/wealth.css">
+<script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+<script type="text/javascript" src="style_js/tab.js"></script>
+<title>充值卡充值</title>
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div class="left"></div>
+			<div class="middle">财富中心</div>
+		</header>
+		<section>
+			<div class="smile">
+				<dl>
+					<dt><img src="style_img/girl_03.png"></dt>
+					<dd>
+						微笑天使
+						<p>每天都是新开始，微笑加油哦！</p>
+					</dd>
+				</dl>
+			</div>
+			<div class="tabs">
+				<ul>
+					<li>我的财富</li>
+					<li>我的订单</li>
+					<li class="wealth">财富充值</li>
+					<li>财富兑换</li>
+				</ul>
+			</div>
+			<div class="matter">
+				<div class="big">
+					<div class="tab_2">
+						<ul>
+							<li class="pay">在线充值</li>
+							<li>充值卡充值</li>
+						</ul>
+					</div>
+					<!-- <div class="wealth_content">
+						<div class="wealth_box">
+					    	<span>充值类型:</span>
+					    	<input type="button" value="给自己充值" class="recharge" />
+					    	<input type="button"  value="给他人充值"/>
+					    </div>
+					    <div class="wealth_box">
+					    	<span>充值账号:</span>
+					    	<input type="text" class="txt" placeholder="1101417669@qq.com（微笑天使）"/>
+					    </div>
+					    <div class="wealth_box">
+					    	<span>充值金额:</span>
+					    	<input type="button" class="btn1" value="50元"/>
+					    	<input type="button" class="btn1" value="100元"/>
+					    	<input type="button" class="btn1" value="200元"/>
+					    	<input type="button" class="btn1" value="其他"/>
+					    </div>
+					    <div class="wealth_box">
+					    	<span>输入金额:</span>
+					    	<input type="text" class="txt1"/>元
+					    </div>
+					    <div class="wealth_box">
+					    	<span>支付通道</span>
+					    	<input type="button" class="btn" value="支付宝支付"/>
+					    	<input type="button" class="btn" value="银联支付"/>
+					        <p>(支持网上银行,手机银行;储蓄卡,信用卡均可支付)</p>
+					    </div>
+					    <div class="wealth_box">
+					    	<input type="button" class="btn2" value="下一步"/><b>查看充值记录</b>
+					    </div>
+					</div> -->
+					<div class="recharge_fm">
+	                    <form action="/payment/recharge/recharge" method="post" class="payChkForm" target="_blank">
+	                        <div class="fm_item">
+	                            <label>充值类型</label>
+	                            <span class="toggle_btn crt">给自己充值</span>
+	                            <span class="toggle_btn">给他人充值</span>
+	                        </div>
+	                        <div class="fm_item">
+	                            <label>充值帐号</label>
+	                            <div class="account">
+	                                <strong class="uacc">100172192</strong>
+	                                <input type="hidden" name="guid" value="100172192">
+	                                <a>（微笑天使）</a>
+	                            </div>
+	                            <div class="account" style="display:none">
+	                                <input type="text" name="account" ajaxurl="/payment/index/ajaxGetUname" class="fm_ipt ipt_length" placeholder="请输入需要充值的帐号" autocomplete="off" datatype="e | /^1\d{10}$/ | /^[a-z0-9]{4,20}$/"  nullmsg="亲，一定要输入帐号哦" errormsg="亲，此帐号不存在啊" sucmsg=" ">
+	                               <!--  <a href="">（微笑天使）</a> -->
+	                            </div>
+	                        </div>                        
+	                        <div class="fm_item">
+	                            <label>充值金额</label>
+	                            <span class="type crt">10元</span>
+	                            <span class="type">20元</span>
+	                            <span class="type">50元</span>
+	                            <span class="type">100元</span>
+	                            <span class="type">200元</span>
+	                            <span class="type other">其他</span>
+	                        </div>
+	                        <div class="fm_item other_item">
+	                            <label>输入数额</label>
+	                            <input type="text" name="money"  class="fm_ipt other_ipt" autocomplete="off" datatype="/^([1-9]\d*(\.\d{1,2})?|(0\.\d{1,2}))$/"  nullmsg="亲，充值金额是空的哦" errormsg="" sucmsg=" ">
+	                            <span class="Validform_checktip"></span>
+	                        </div>
+	                        <div class="fm_item fm_item_short">
+	                            <label>获得全品币</label>
+	                            <strong class="coin">10.00</strong>元
+	                            <input type="hidden" id="coin_hdipt" value="10.00" name="coin">
+	                        </div>
+	                        <div class="fm_item fm_item_short">
+	                            <label>支付通道</label>
+	                            <span class="paytype"><input type="radio" name="paytype" value="1" checked="checked">支付宝支付</span>
+	                            <span class="paytype"><input type="radio" name="paytype" value="2" >银联支付</span><br>
+	                            <em class="tips">（支持网上银行、手机银行；储蓄卡、信用卡均可支付）</em>
+	                        </div>
+	                        <div class="fm_item">
+	                            <input type="submit" value="下一步" class="btn">
+	                            <a href="">查看充值记录</a>
+	                        </div>
+	                    </form>
+                </div>
+					<div class="wealth_exp">
+						<h6>充值说明</h6>
+					    <p>1.如果您有银行卡，请选择银联支付，可立即到账。</p>
+					    <p>2.如您习惯使用支付宝，可使用”支付宝支付“，可立即到账。</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+</body>
+<html>

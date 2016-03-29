@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>我的订单_财富中心_全品学堂</title>
+    <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网" />
+    <meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂" />
+    <link type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+    <script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    <script>
+        function btn_sbm(ob) {
+            $(ob).attr('onclick', '');
+            $.post('/shop/buy/order', $('#payform').serialize(), function (re) {
+                if (!re.success) {
+                    alert(re.msg);
+                    $(ob).attr('onclick', 'btn_sbm(this)');
+                    $('[name=tkn]').val(re.tkn)
+                }
+                if (re.url)
+                    window.location.href = re.url;
+            }, 'json')
+        }
+    </script>
+</head>
+<body>
+<div id="cover"></div>
+<!-- HTML_TOP -->
+<div class="position">
+    <i class="cur_icon"></i>
+    <span>财富中心</span> &gt;
+    <span class="pos_small">我的订单</span>
+</div>
+<div id="container">
+    <div class="main">
+        <form action="" method="post" id="payform" class="payChkForm">
+            <input type="hidden" name="id" value="{$data['id']}">
+            <input type="hidden" name="tkn" value="{$data['tkn']}">
+            <div class="pay_fm">
+                <h2 class="shop_tt ">商品清单</h2>
+                <div class="pay_tb order_tb shop_tb">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th width="400" class="th1">名称</th>
+                            <th width="290">数量</th>
+                            <th>价钱（元）</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="data.goods" id="vo">
+                            <tr>
+                                <td>
+                                    <a class="video_link">
+                                        <img src="{$vo['goods_img']}" width="80" height="60">{$vo['goods_name']}
+                                    </a>
+                                </td>
+                                <td>x1</td>
+                                <td>{$vo['shop_price']}</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="address_info ">
+                    <h2 class="shop_tt" style="margin-top: 35px;">收货人信息</h2>
+                    <input type="hidden" name="u_name" value="{$data['addr']['name']}">
+                    <input type="hidden" name="u_addr" value="{$data['addr']['address']}">
+                    <input type="hidden" name="u_tel" value="{$data['addr']['tel']}">
+                    <if condition="$data['addr']">
+                        <a href="javascript:void(0);" class="update_btn">更改收货人信息</a>
+                        <label>收货人：<span class="uinfo u_name">{$data['addr']['name']}</span></label>
+                        <label>收货地址：<span class="uinfo u_addr">{$data['addr']['address']}</span></label>
+                        <label>手机号码：<span class="uinfo u_tel">{$data['addr']['tel']}</span></label>
+                        <else />
+                        <div class="no_address">还没有收货人信息 <a href="javascript:void(0);" class="add_btn">立即添加</a></div>
+                    </if>
+                </div>
+                <div class="shop_pay">
+                    <h2 class="shop_tt">选择支付方式</h2>
+                    <label><input type="radio" name="pay_style" value="0" id="shop_pay" checked="checked" /> 支付宝支付</label>
+                    <label><input type="radio" name="pay_style" value="1" /> 微信支付</label>
+                </div>
+                <div class="shop_account">
+                    <p><strong>{$data['goods']|count}</strong> 件商品，总价：<span>¥{$data['ori_price']}</span></p>
+                    <p>优惠：<span>¥{$data['ori_price']-$data['net_price']}</span></p>
+                    <p>应付总额：<strong>¥{$data['net_price']}</strong></p>
+                </div>
+                <div class="shop_sbt">
+                    <span>应付总额：<strong>¥{$data['net_price']}</strong>元</span>
+                    <input type="button" onclick="btn_sbm(this)" value="提交订单" class="btn">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<!--添加地址框 start-->
+<div class="tips_fixed">
+    <div class="tips_fm">
+        <div class="tips_top">添加收货人信息<span class="close">×</span></div>
+        <div class="tips_fm_ct">
+            <form action="/shop/buy/saveAddr" method="post" name="mdf_addr" id="addressForm">
+                <div class="tips_item">
+                    <label><em>*</em>收货人</label>
+                    <input type="text" name="u_name" class="tips_ipt" autocomplete="off" datatype="*" nullmsg="" errormsg="" sucmsg=" ">
+                    <span class="Validform_checktip"></span>
+                </div>
+                <div class="tips_item">
+                    <label><em>*</em>手机号码</label>
+                    <input type="text" name="u_tel" class="tips_ipt" autocomplete="off" datatype="/^1\d{10}$/" nullmsg="" errormsg="" sucmsg=" ">
+                    <span class="Validform_checktip"></span>
+                </div>
+                <div class="tips_item">
+                    <label><em>*</em>收货地址</label>
+                    <input type="text" name="u_addr" class="tips_ipt ipt_big_length" autocomplete="off" datatype="*" nullmsg="" errormsg="" sucmsg=" ">
+                    <span class="Validform_checktip"></span>
+                </div>
+                <div class="tips_item tips_item_btn">
+                    <input type="submit" value="保存信息" class="btn sub_btn" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--添加地址框 end-->
+<div class="clear"></div>
+<include file="./Template/style1/ainc.foot.html" />
+</body>
+</html>

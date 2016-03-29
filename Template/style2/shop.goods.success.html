@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/goods.css?v={$timestamp
+}">
+    <script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+    <title>购买成功</title>
+    <script type="text/javascript">
+        $(function(){
+            $('.update_btn').click(function(){
+                $('.shareTo').show();
+            });
+            $('.cover').click(function(){
+                $('.shareTo').hide();
+            });
+        })
+
+
+        function huitui()
+        {
+            javascript:history.go(-1);
+        }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <style type="text/css">section{top: 0px;}</style>
+    <php>
+        }
+        else
+        {
+    </php>
+    <header>
+        <div class="left"><img src="style_img/return.png"></div>
+        <div class="middle">兑换成功</div>
+        <div class="right"  onclick="huitui()"   >
+            <if condition="$_SESSION['user'][0]['u_guid']" >
+                <a href="http://my.canpoint.net"  ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a>
+                <else/>
+                <a href="http://e.canpoint.net/login"  ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a>
+            </if>
+        </div>
+    </header>
+    <php>
+        }
+    </php>
+
+    <section>
+        <div class="change_suc">
+            <h3>恭喜您，兑换成功！</h3>
+            <p>本次兑换信息可在财富中心的交易记录查到</p>
+            <p style="padding-top:10px;">订单号：<strong>{$orderInfo.order_num}</strong></p>
+            <br>
+        </div>
+        <div class="fm_item fm_sub">
+            <a href="/order/index/index" class="looked">查看订单</a>
+            <a href="javascript:void(0)" class="update_btn">分享</a>
+        </div>
+    </section>
+    <!-- 分享 -->
+    <div class="shareTo">
+        <div class="cover"></div>
+        <div class="share bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1430878187516">
+            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信朋友圈</a>
+            <a title="分享到QQ好友" href="#" class="bds_sqq" data-cmd="sqq">QQ</a>
+            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">新浪微博</a>
+            <a title="分享到QQ空间" target="_blank" href="#" class="bds_qzone">QQ空间</a>
+            <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq">腾讯微博</a>
+        </div>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": '我的学习我做主！学习还能得奖品！全品学堂精美礼品超值兑换，有豆就是任性！快去看看吧~~~',
+                "bdDesc": '我的学习我做主！学习还能得奖品！全品学堂精美礼品超值兑换，有豆就是任性！快去看看吧~~~',
+                "bdMini": "2",
+                "bdUrl":'http://e.canpoint.net/goods/index/goodsinfo?id={$goods_info.goods_id}',
+                "bdMiniList": false,
+                "bdPic": "http://gadm.canpoint.net/{$goods_info.goods_img}",
+                "bdStyle": "0",
+                "searchPic":false,
+                "bdSize": "16"
+            },
+            "share": {},
+        };
+        with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+</body>
+<html>

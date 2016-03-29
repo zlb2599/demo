@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>学习卡充值_财富充值_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://www.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://www.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">财富充值</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+               <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge crt_pay"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <h2 class="recharge_tt">财富充值</h2>
+                <div class="recharge_tab">
+                    <a class="tab_btn" href="/payment/recharge/online">在线充值</a>
+                    <strong>|</strong>
+                    <a class="tab_btn crt" href="/payment/recharge/card">学习卡充值</a>
+                    <a href="/payment/index/index">查看充值记录</a>
+                    <div class="line" style="left:110px;"></div>
+                </div>
+                <div class="recharge_fm">
+                    <form action="/payment/Index/cardpay" method="post" class="payChkForm">
+                        <div class="fm_item">
+                            <label>充值帐号</label>
+                            <div class="account"><span>{$uid} </span></div>
+                        </div>
+                        <div class="fm_item">
+                            <label>学习卡</label>
+                            <input type="text" name="cardnum"  class="fm_ipt ipt_length" ajaxurl="/payment/index/ajaxCheckCard"  autocomplete="off" datatype="/^[0-9a-zA-Z]{12,30}$/"  nullmsg="请输入学习卡信息" errormsg="学习卡信息错误，请重新输入！" sucmsg=" ">
+                            <span class="Validform_checktip"></span>
+                        </div>
+                        <!-- <div class="fm_item">
+                            <label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                            <input type="password" name="cardnum"  class="fm_ipt ipt_middle" autocomplete="off" datatype="/^[A-Z0-9]{8}$/" nullmsg="请输入与该卡号相对应的密码" errormsg="亲，学习卡密码有误，请仔细核对" sucmsg=" ">
+                            <span class="Validform_checktip"></span>
+                        </div> -->
+                        <div class="fm_item">
+                            <input type="submit" value="确定" class="btn">
+                            <input type="reset" value="取消" class="btn cancel_btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="warms_tips">
+                    <h3>充值说明</h3>
+                    <p>1.学习卡号+密码：在学习卡信息框内直接输入15位卡号和8位密码，中间无空格，区分大小写 </p>
+                    <p>例如:2020014026022106D3W5Q2F</p>
+                    <p>2.纯数字密码：在学习卡信息框内直接输入12位的纯数字密码</p>
+                    <p>例如:988983294159</p>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+    
+    <!-- end底部信息 -->	
+</body>
+</html>

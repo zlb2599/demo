@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/goods.css?v={$timestamp
+}">
+    <script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="style_js/Validform v5.3.2.js"></script>
+    <title>实物兑换</title>
+    <script type="text/javascript">
+        $(function(){
+            var oacChkForm = $(".payChkForm").Validform({
+                tiptype: 4,
+            });
+        });
+
+        function huitui()
+        {
+            javascript:history.go(-1);
+        }
+
+    </script>
+</head>
+<body>
+<div class="wrapper">
+
+
+        <php>
+            if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+            {
+        </php>
+        <style type="text/css">section{top: 0px;}</style>
+        <php>
+            }
+            else
+            {
+        </php>
+        <header>
+            <div class="left"   onclick="huitui()"  ><img src="style_img/return.png"></div>
+            <div class="middle">实物详情</div>
+
+
+            <div class="right">
+                <if condition="$_SESSION['user'][0]['u_guid']" >
+                    <a href="http://my.canpoint.net"  ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a>
+                    <else/>
+                    <a href="http://e.canpoint.net/login"  ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a>
+                </if>
+            </div>
+        </header>
+        <php>
+            }
+        </php>
+
+    <section>
+        <div class="info">
+            <form action="/shop/goods/payok/" method="post" class="payChkForm">
+                <h3>商品清单</h3>
+                <div class="order">
+                    <ul>
+                        <li class="order_img"><img src="http://adm.canpoint.net/goods/{$goods_info.goods_thumb}" ></li>
+                        <li class="order_name">{$goods_info.goods_name} </li>
+                        <li class="order_num"><p class="dou">{$total_price}全品豆</p><p class="num">数量：x1</p></li>
+                    </ul>
+                </div>
+                <h3 class="consignee">收货人信息</h3>
+                <div class="message">
+                    <div class="fm_item">
+                        <input type="hidden" name ="card" value="{$orderInfo.order_num}">
+                        <label>姓名：</label>
+                        <span class="uinfo">{$u_post.u_realname}</span>
+                    </div>
+                    <div class="fm_item">
+                        <label>手机：</label>
+                        <span class="uinfo">{$u_post.u_phone}</span>
+                    </div>
+                    <div class="fm_item">
+                        <label>地址：</label>
+                        <span class="uinfo">{$u_post.u_address}</span>
+                        <input type="hidden" name="province"  class="ipt_read"  value="">
+                        <input type="hidden" name="city"  class="ipt_read"  value="">
+                        <input type="hidden" name="address"  class="ipt_read"  value="">
+                    </div>
+                    <div class="fm_item fm_sub">
+
+                        <input type="submit" value="确定" class="sub_btn" />
+                        <a href="javascript:history.go(-1);" class="update_btn">重填</a>
+                    </div>
+                    <br><br>
+                </div>
+            </form>
+        </div>
+    </section>
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+</body>
+<html>

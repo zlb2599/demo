@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style_css/reset.css">
+<link rel="stylesheet" type="text/css" href="style_css/wealth.css">
+<script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+<script type="text/javascript" src="style_js/tab.js"></script>
+<title>财富首页</title>
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div class="left"></div>
+			<div class="middle">财富中心</div>
+		</header>
+		<section>
+			<div class="smile">
+				<dl>
+					<dt><img src="style_img/girl_03.png"></dt>
+					<dd>
+						微笑天使
+						<p>每天都是新开始，微笑加油哦！</p>
+					</dd>
+				</dl>
+			</div>
+			<div class="tabs">
+				<ul>
+					<li>我的财富</li>
+					<li>我的订单</li>
+					<li>财富充值</li>
+					<li class="wealth">财富兑换</li>
+				</ul>
+			</div>
+			<div class="matter">
+				<div class="big">
+					<div class="bean">
+						<h1>兑换全品豆</h1>
+						<p class="cost">花费全品币</p>
+						<p>
+							<input type="text" class="fm_ipt ipt_middle" placeholder="请输入要兑换的全品币数额" autocomplete="off" datatype="/^([1-9]\d*(\.\d{1,2})?|(0\.\d{1,2}))$/"  nullmsg="亲，你要花多少全品币去兑换?" errormsg="亲，不能透支哦" sucmsg=" " id="dou_ipt"><br>
+							<span class="Validform_checktip"></span>
+							<div class="dou_tips">
+								您有全品币<strong id="coin">120.00</strong>元，可兑换全品豆<strong>1200</strong>个
+							</div>
+						<p>
+						<div class="fm_item dou_item">
+                            <p class="lable_middle">获得全品豆</p>
+                            <strong class="exchange_dou">0</strong>个
+                        </div>
+						<div class="next">
+							<button>下一步</button>
+							<a>查看兑换目录</a>
+						</div>
+						<div class="line"></div>
+						<div class="tip">
+							<h2>温馨提示</h2>
+							<p>1.全品豆只能通过全品币兑换1全品币=100全品豆</p>
+							<p>2.每年可兑换的全品豆上限为20000个</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+</body>
+<html>

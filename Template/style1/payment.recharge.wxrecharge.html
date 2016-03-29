@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>微信支付_财富充值_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+        <script type="text/javascript" src="style_js/qrcode.js"></script>
+    </head>
+    <body>
+        <div id="cover"></div>
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">财富充值</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+                <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge crt_pay"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <h2 class="recharge_tt">财富充值</h2>
+                <div class="recharge_tab">
+                    <a class="tab_btn crt" href="/payment/recharge/online">在线充值</a>
+                    <strong>|</strong>
+                    <a class="tab_btn" href="/payment/recharge/card">学习卡充值</a>
+                    <a href="/payment/index/index">查看充值记录</a>
+                    <div class="line"></div>
+                </div>
+                <div class="wx_info">
+                    <p class="info_lst1">请您及时付款，以便充值顺利进行！在线支付编号：{$ordernum}  <span class="recharge_sum">充值金额：<strong>{$price}</strong>元</span></p>
+                    <p class="info_lst2">充值过程中，请勿关闭当前页面，否则充值会自动取消。</p>
+
+                </div>
+                <div class="wx_pay">
+                    <h2 class="wx_pay_tt">微信支付</h2>
+                    <div id="qrcode" class="wx_qrcode"></div>
+<!--                    <img src="style_img/v4_img/pay11.jpg" />-->
+                    <div class="wx_icon"></div>
+                    <div class="wx_richscan"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+
+    <include file="./Template/style1/ainc.foot.html"/>
+    <script>
+        var url = "{$url2}";
+        var ordernum = "{$ordernum}";
+
+        function viewInExplorerStatus() {
+//        $.post("/payment/recharge/wx_notify", {ordernum: ordernum}, function(data) {
+//            alert(data);
+//        });
+            $.ajax({
+                //提交数据的类型 POST GET
+                type: "POST",
+                //提交的网址
+                url: "/payment/recharge/wx_notify",
+                //提交的数据
+                data: {ordernum: ordernum},
+                //返回数据的格式
+                datatype: "text", //"xml", "html", "script", "json", "jsonp", "text".
+
+                //成功返回之后调用的函数             
+                success: function(data) {
+                    if (data == 'SUCCESS') {
+                        window.location = '/payment/recharge/wxsuccess?ordernum=' + ordernum;
+                    }
+                }
+
+            })
+        }
+
+        window.onload = function() {
+
+            setInterval("viewInExplorerStatus()", 2000);
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                width: 256, //设置宽高
+                height:256
+            });
+            qrcode.makeCode(url);
+        }
+
+
+    </script>
+    <!-- end底部信息 -->	
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="format-detection" content="telephone=no, email=no">
+	    <meta name="x5-orientation" content="portrait">
+	    <meta name="full-screen" content="yes">
+	    <meta name="x5-fullscreen" content="true">
+	    <meta name="browsermode" content="application">
+	    <meta name="x5-page-mode" content="app">
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp}">
+        <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp}">
+        <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+        <script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+        <script type="text/javascript" src="style_js/tab.js"></script>
+        <title>财富首页</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <php>
+                if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+                {
+            </php>
+            <!-- 微信分享开始 -->
+            <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+            <script>
+                wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: '{$weixin_data.appId}', // 必填，公众号的唯一标识
+                            timestamp: {$weixin_data.timestamp}, // 必填，生成签名的时间戳
+                        nonceStr: '{$weixin_data.nonceStr}', // 必填，生成签名的随机串
+                        signature: '{$weixin_data.signature}',// 必填，签名，见附录1
+                        jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+                wx.ready(function(){
+                    //分享到朋友圈
+                    wx.onMenuShareTimeline({
+                        title: '全品学堂财富首页', // 分享标题
+                        link: 'http://e.canpoint.net', // 分享链接
+                        imgUrl: 'http://img1.canpoint.net/g1/M00/09/DB/oYYBAFXdheOAFytrAAA3u1KDE_c846.png', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+
+                        }
+                    });
+                    //分享给朋友
+                    wx.onMenuShareAppMessage({
+                        title: '全品学堂财富首页', // 分享标题
+                        desc: '全品学堂财富首页', // 分享描述
+                        link: 'http://e.canpoint.net', // 分享链接
+                        imgUrl: 'http://img1.canpoint.net/g1/M00/09/DB/oYYBAFXdheOAFytrAAA3u1KDE_c846.png', // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    //分享到QQ
+                    wx.onMenuShareQQ({
+                        title: '', // 分享标题
+                        desc: '', // 分享描述
+                        link: '', // 分享链接
+                        imgUrl: '', // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+                });
+            </script>
+            <!-- 微信分享结束 -->
+            <style type="text/css">section{top: 0px;}</style>
+            <php>
+                }
+                else
+                {
+            </php>
+            <!-- HTML_TOP -->
+            <php>
+                }
+            </php>
+            <section>
+                <div class="smile">
+                    <dl>
+                        <dt><a href="http://{$u_guid}.u.canpoint.net"><img src="{$avatar_file_url}"></a></dt>
+                        <dd>
+                            <a href="http://{$u_guid}.u.canpoint.net">{$u_nick_name}</a>
+                            <p>每天都是新开始，微笑加油哦！</p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="tabs">
+                    <ul>
+                        <li class="wealth"><a href="/money/index/index">我的财富</a></li>
+                        <li><a href="/order/index/index">我的订单</a></li>
+                        <li><a href="/payment/recharge/online">财富充值</a></li>
+                        <li><a href="/change/index/index">财富兑换</a></li>
+                        <li><a href="/cash/index/index" style="letter-spacing:2px;">&nbsp优惠券</a></li>
+                    </ul>
+                </div>
+                <div class="matter">
+                    <div class="big">
+                        <div class="change">
+                            <h1>财富总览</h1>
+                            <dl style="margin-right:0.5em;">
+                                <dt><img src="style_img/gloab_05.png"></dt>
+                                <dd>
+                                    全品币<br>
+                                    <b>{$u_user_rpoint}</b>
+                                    <p><a href="/payment/recharge/online"><button>充值</button></a><a href="/money/myrpoint/index">详情</a></p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="style_img/bean_07.png"></dt>
+                                <dd>
+                                    全品豆<br>
+                                    <b>{$u_user_qdou}</b>
+                                    <p><a href="/change/index/index" style="padding-right:1.2em;">兑换</a><a href="/money/mydou/index">详情</a></p>
+                                </dd>
+                            </dl>
+                            <div style="clear:both;"></div>
+                            <dl  style="margin-right:0.5em;">
+                                <dt><img src="style_img/roll_11.png"></dt>
+                                <dd>
+                                    全品券<br>
+                                    <b>{$u_user_fpoint}</b>
+                                    <p><a href="/payment/recharge/card"><button>充值</button></a><a href="/money/myfpoint/index">详情</a></p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <em>
+                                    <a href="http://help.canpoint.net/home/faq/6.html">财富有什么用?</a>
+                                </em>
+                            </dl>
+                        </div>
+                        <div class="about">
+                            <h1>相关动态</h1>
+                            <a href="/payment/index/index"><dl>
+                                <dt><img src="style_img/ch_14.png"></dt>
+                                <dd>充值记录</dd>
+                            </dl></a>
+                            <a href="/change/index/lists"><dl style="border-left:none;border-right:none;">
+                                <dt><img src="style_img/exchange_16.png"></dt>
+                                <dd>兑换记录</dd>
+                            </dl></a>
+                            <a href="/order/index/index"><dl style="margin-right:0;">
+                                <dt><img src="style_img/order_14.png"></dt>
+                                <dd class="dd">我的订单</dd>
+                            </dl></a>
+                        </div>
+                    </div>
+                    <div class="tip">
+                        <h3>温馨提示</h3>
+                        <p>1.全品币通过全品币学习卡充值或在线充值获得</p>
+                        <p>2.全品劵通过全品劵学习卡充值获得</p>
+                        <p>3.关于以上三种财富的详细介绍请到帮助中心查看<a href="http://help.canpoint.net/home/faq/6.html">去了解</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <php>
+                if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+                {
+            </php>
+            <include file="./Template/style2/ainc.foot.weixin.html"/>
+
+            <php>
+                }
+                else
+                {
+            </php>
+            <include file="./Template/style2/ainc.foot.html"/>
+            <php>
+                }
+            </php>
+        </div>
+    </body>
+    <html>

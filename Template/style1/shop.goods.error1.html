@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>实物兑换商品详情_兑换中心_全品学堂</title>
+    <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    <meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+    <link type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+    <script type="text/javascript" src="style_js/v4_pay.js"></script>
+</head>
+<body>
+<div id="cover"></div>
+<!-- HTML_TOP -->
+<!-- 顶部区域开始 -->
+
+
+<div class="position pos_exchange">
+    <i class="cur_icon"></i>
+    <a href="http://e.canpoint.net/goods/index/goodslist/
+"><span>兑换中心</span></a>&gt;<a href="http://e.canpoint.net/goods/index/goodslist/
+"><span>实物兑换</span></a>&gt;<span>商品清单</span>
+</div>
+<div id="container">
+    <div class="main">
+        <div class="pay_fm">
+            <if condition="$goods_info">
+                <div class="pay_tb order_tb">
+                    <h5 class="pay_tt" style="height: 45px;">商品清单</h5>
+                    <table class="tb_border">
+                        <thead>
+                        <tr>
+                            <th width="435" class="th1">商品名称</th>
+                            <th width="175">商品数量</th>
+                            <th width="175">使用财富</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <a target="_blank" class="video_link" style="color: #333;">
+                                    <img src="http://adm.canpoint.net/goods/{$goods_info.goods_thumb}" width="80" height="60">{$goods_info.goods_name}
+                                </a>
+                            </td>
+                            <td>1</td>
+                            <td>{$goods_info['shop_price']}全品豆</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </if>
+
+            <div class="exchange_tips">
+                <i class="exchange_icon"></i>
+
+                <p>{$ds['msg']}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部信息 -->
+<div class="clear"></div>
+<include file="./Template/style1/ainc.foot.html" />
+
+<!-- end底部信息 -->
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp
+}">
+    <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+    <script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="style_js/tab.js"></script>
+    <title>结算中心-支付完成</title>
+</head>
+<body>
+<div id="wrapper">
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <style type="text/css">section{top: 0px;}</style>
+    <php>
+        }
+        else
+        {
+    </php>
+    <!-- HTML_TOP -->
+    <php>
+        }
+    </php>
+    <section>
+        <div class="matter">
+            <div class="big">
+                <div class="fail">
+                <i class="pay_icon"></i>
+                <h3>订单支付失败! </h3>
+                <p>您所支付的订单已支付或已取消。</p>
+                <a href="http://wk.canpoint.net" class="btn">重新去找课</a>
+            </div>
+            </div>
+        </div>
+        <!-- 分页 -->
+        <div class="pagelist">
+
+        </div>
+    </section>
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+</body>
+<html>

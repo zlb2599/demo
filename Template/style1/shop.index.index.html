@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>我的购物车_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_scroll.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+        <script type="text/javascript">
+            var scrollNum = 5;
+        </script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position pos_car">
+            <i class="cur_icon"></i>
+            <span>我的购物车</span>
+            <div class="pos_car_r">
+                <!-- <strong class="crt">我的购物车 </strong> -->
+                <strong>余额支付</strong>
+                <strong>完成支付</strong>
+            </div>
+        </div>
+        <div id="container">
+            <div class="main">
+                <div class="pay_tb order_tb">
+                    <!-- 无记录时的状态 -->
+                    <!-- <div class="nocourse">
+                                    <i class="pay_icon"></i>
+                                    <p>购物车空空的哦~，快去挑选自己喜欢的课吧~</p>
+                                    <a href="">去买课></a>
+                            </div> -->
+                    <form action="http://e.canpoint.net/login/index/index/url/{$return_urls}" method="post">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="100"><span class="hdchb"><input type="checkbox" name="toggle_chb" class="chb_item">全选</span></th>
+                                    <th width="435">微课</th>
+                                    <th width="175">价格（元）</th>
+                                    <th width="175">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <foreach name="kearr" item="v">
+                                <tr>
+                                    <td width="100"><input type="checkbox" name="chb_item" class="chb_item"></td>
+                                    <td><a href="" class="video_link"><img src="{$v[x_url]}" width="80" height="60">{$v['title']}</a></td>
+                                    <td>{$v['x_price']}</td>
+                                    <td><a onclick="deleteOrder({$v['id']});" class="delete_btn" href="javascript:void(0);">删除</a></td>
+                                </tr>
+                            </foreach>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">
+                                        <span class="hdchb"><input type="checkbox" name="toggle_chb" class="chb_item">全选
+                                            <a href="javascript:void(0);" onclick="deleteOrder(11);">删除选中的课</a>
+                                        </span>
+                                    </td>
+                                    <td colspan="3">
+                                        <div class="ft_sum">
+                                            <span>合计<strong>80.00</strong> 元</span>
+                                            <input type="submit" value="去结算" class="btn">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>	
+                        </table>
+                    </form>
+                    <div class="tips_pos">
+                        提示框
+                        <div class="tips">
+                            <div class="tips_top">提示<span class="close">×</span></div>
+                            <div class="tips_con">
+                                <div class="tips_con_icon"></div>
+                                <div class="tips_con_r">
+                                    <h4>您确定要删除所选中的课程吗？</h4>
+                                    <p>课程删除后，不可恢复，需要在微课频道</p>
+                                    <p>重新添加。</p>
+                                </div>
+                            </div>
+                            <div class="tips_ft">
+                                <input type="button" value="取消"class="btn close">
+                                <input type="button" value="确定" class="btn sub_btn">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+    <div class="footer">
+        <div class="navigation">
+            <div class="navtion_a">
+                <a href="#">关于我们</a>
+                <a href="#">联系我们</a>
+                <a href="#">服务协议</a>
+                <a href="#">留言板</a>
+                <a href="#" style="border-width:0;">全品教学网</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="champoin">
+                <p>Copyright &copy; 2010-2014北京全品文化发展有限公司canpoint.net. All rights reserved. 京ICP备10032573号-9</p>	
+            </div>
+        </div>
+    </div>
+    <!-- end底部信息 -->	
+</body>
+</html>

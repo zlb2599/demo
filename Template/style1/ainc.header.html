@@ -1,0 +1,111 @@
+<link  type="text/css" rel="stylesheet" href="http://e.canpoint.net/style_css/header.css" />
+<script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+<!-- <div class="ad_out">
+    <div class="topic_ad">
+        <a href="http://e.canpoint.net/active/vote/index" target="_blank" class="small_adimg"><img src="http://e.canpoint.net/style_img/index1.jpg" ></a>
+    </div>
+</div> -->
+<!--头部  start-->
+<div class="header_wrap">
+	<!--顶部 start-->
+	<div class="hd_top">
+		<div class="hd_body">
+			<ul class="hd_item">
+				<li class="tel_item"><i class="tel_icon u_block"></i>客服热线：400-865-2166</li>
+				<li class="weixin_item">
+					<i class="weixin_icon u_block"></i>微信 <i class="triangle_icon"></i>
+					<div class="hd_qrcode">
+						<div class="qrcode_ct"></div>
+					</div>
+				</li>
+				<li class="mobile_item">
+					<i class="mobile_icon u_block"></i>手机APP <i class="triangle_icon"></i>
+					<div class="hd_qrcode">
+						<div class="qrcode_ct"></div>
+					</div>
+				</li>
+			</ul>
+			<div class="hd_login">
+				<!-- nologin -->
+				<div class="hd_sign">
+					<a href="http://e.canpoint.net/user/level/level" class="hd_sign_btn">签到有奖励>></a>
+					<span class="hd_tips {$nologin}">注册就送200元全品券</span>
+				</div>
+				<a href="http://e.canpoint.net/login/index/index/url/{$return_url}" class="hd_log_btn {$nologin}">登录</a>
+				<a href="http://e.canpoint.net/register" class="hd_reg_btn {$nologin}">免费注册</a>
+				<!-- islogin -->
+               <div class="hd_notice {$islogin}">
+                  	<a href="http://my.canpoint.net/notification/index/index">消息<span class="hd_notice_num" id="noticeNum"></span></a>
+              	</div>
+               	<div class="hd_user {$islogin}">
+                   <a href="http://my.canpoint.net/home/index/index" class="hd_nick">
+                       	<span>{$u_nickname}</span>
+                        <img src="{$avatar_file_url}" >
+                   </a>
+                   <div class="hd_menu">
+                       <ul class="hd_menu_item">
+                           <li class="school"><a href="http://my.canpoint.net/userv2/course/inbuyclass"><i class="hd_icon"></i>我的学堂</a></li>
+                           <li class="pay"><a href="http://pay.canpoint.net/"><i class="hd_icon"></i>财富中心</a></li>
+                           <li class="ac"><a href="http://my.canpoint.net/userv2/account/informt.html"><i class="hd_icon"></i>帐号设置</a></li>
+                           <li class="logout"><a href="http://e.canpoint.net/Index/Login/unlogin/url/{$return_url}"><i class="hd_icon"></i>退出登录</a></li>
+                       </ul>
+                   </div>
+               	</div>
+			</div>
+		</div>
+	</div>
+	<!--顶部 end-->
+	<!--导航 start-->
+	<div class="hd_nav">
+		<div class="nav_body">
+			<div class="hd_logo">
+				<a href="http://www.canpoint.net"></a>
+			</div>
+			<div class="nav_site">
+				<ul>
+					<li><a href="http://www.canpoint.net">首页</a></li>
+					<li><a href="http://wk.canpoint.net/home/pack">课程</a></li>
+					<li><a href="http://eqa.canpoint.net/">问吧</a></li>
+					<li><a href="http://e.canpoint.net/classmy/my/index.html">班嗨</a></li>
+					<li><a href="http://zone.canpoint.net/home/index/index/">学社</a></li>
+					<li><a href="http://game.canpoint.net">国学PK</a></li>
+					<li><a href="http://ms.canpoint.net/">名师</a></li>
+					<li class="hd_more">
+						更多 <i class="triangle_icon"></i>
+						<div class="nav_more">
+							<div class="nav_more_lst">
+								<p><a href="http://zb.canpoint.net/">课堂直播</a></p>
+								<p><a href="http://e.canpoint.net/Game/index/index">动漫数学</a></p>
+								<p><a href="http://e.canpoint.net/goods/index/goodslist/">兑换中心</a></p>
+								<p><a href="http://e.canpoint.net/user/rank/index">排行榜</a></p>
+								<p><a href="http://e.canpoint.net/active/record/index">官方活动</a></p>
+    							<p><a href="http://help.canpoint.net/service/news/index">全品资讯</a></p>
+    							<p class="last"><a href="http://help.canpoint.net/">帮助中心</a></p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--导航 end-->
+</div>
+<script>
+    //通知个数请求ajax
+    var u_guid = "{$u_guid}";
+    if(u_guid){
+        $.ajax({
+            url: 'http://my.canpoint.net/Notification/Api/ajax_notific_count?guid='+u_guid,
+            type: 'GET',
+            dataType: 'jsonp',
+            jsonp:'jsoncallback',
+            success:function(data){
+                if(data.info != 0){
+                    $('#noticeNum').html(data.info);
+                }else{
+                   $('#noticeNum').hide(); 
+                }
+            }
+        });
+    }  
+</script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp
+}">
+    <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+    <script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="style_js/tab.js"></script>
+    <title>订单详情</title>
+</head>
+<body>
+<div id="wrapper">
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <style type="text/css">section{top: 0px;}</style>
+    <php>
+        }
+        else
+        {
+    </php>
+    <!-- HTML_TOP -->
+    <php>
+        }
+    </php>
+    <section>
+        <div class="smile">
+            <dl>
+                <dt><a href="http://{$u_guid}.u.canpoint.net"><img src="{$avatar_file_url}"></a></dt>
+                <dd>
+                    <a href="http://{$u_guid}.u.canpoint.net">{$u_nick_name}</a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="tabs">
+            <ul>
+                <li><a href="/money/index/index">我的财富</a></li>
+                <li   class="wealth" ><a href="/order/index/index">我的订单</a></li>
+                <li><a href="/payment/recharge/online">财富充值</a></li>
+                <li ><a  href="/change/index/index">财富兑换</a></li>
+                <li><a href="/cash/index/index" style="letter-spacing:2px;">&nbsp优惠券</a></li>
+            </ul>
+        </div>
+        <div class="matter">
+            <div class="big">
+                <div class="title">
+                    <h3>订单列表<span>状态提醒：待付款（{$nopay}）</span></h3>
+                   <!--  <p>筛选</p> -->
+                </div>
+                <div class="main">
+                    <ul class="myul">
+                        <li class="myli1">订单信息</li>
+                        <li class="myli2">金额</li>
+                        <li class="myli3">操作</li>
+                    </ul>
+                    <foreach name="list" item="vo">
+                        <ul class="example">
+                            <if condition="$vo['isEc'] eq 2">
+                                <li class="mylis">{$vo['order_name']}<br>
+                                    <span>{$vo['order_num']}</span></li>
+                                <li class="myli2">{$vo['order_price']}</li>
+                                <li class="myli5">
+                                    <if condition="$vo['order_status'] eq 2">
+                                        <a href="http://my.canpoint.net/Userv2/Course/InBuyClass">去学习</a>
+                                        <else />
+                                        <a href="javascript:void(0);" class="delete_btn" onclick="deleteOrder('/order/index/delbill?id={$vo[id]}');">删除</a>
+                                    </if>
+                                </li>
+                            <else/>
+                                <li class="mylis">{$vo['order_name']}<br>
+                                    <span>{$vo['order_num']}</span></li>
+                                <li class="myli2">{$vo['order_dou']}</li>
+                                <li class="myli5">
+                                        <a href="/order/index/detail?id={$vo['id']}">查看</a>
+                                </li>
+                            </if>
+                       </ul>
+                    </foreach>
+                </div>
+            </div>
+        </div>
+        <!-- 分页 -->
+        <div class="paging">
+            <ul>{$page}</ul>
+        </div>
+    </section>
+    <div class="tips_pos">
+            <div class="cover1"></div>
+            <div class="tips">
+                <div class="tips_con_r">
+                    <h4>您确定要删除该订单吗？</h4>
+                </div>
+                <div class="tips_ft">
+                    <a href="" class="btn close">取消</a>
+                    <a href="" class="btn sub_btn" style="border-bottom:none;">确定</a>
+                    <!-- <input type="button" value="确定" class="btn sub_btn"> -->
+                </div>
+            </div>
+        </div>
+
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+</body>
+<html>

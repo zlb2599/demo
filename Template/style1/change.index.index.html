@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>财富兑换_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">财富兑换</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+                <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange crt_pay"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <h2 class="recharge_tt">财富兑换</h2>
+                <div class="recharge_tab">
+                    <a class="tab_btn crt">兑换全品豆</a>
+                    <a href="/change/index/lists">查看兑换记录</a>
+                    <div class="line"></div>
+                </div>
+                <div class="recharge_fm">
+                    <form action="/change/index/change" method="post" class="payChkForm" >
+                        <div class="fm_item">
+                            <label class="lable_middle">花费全品币</label>
+                            <input type="text" name="rpoint"  class="fm_ipt ipt_middle" placeholder="请输入全品币数额" autocomplete="off" datatype="/^([1-9]\d*(\.\d{1,2})?|(0\.\d{1,2}))$/"  nullmsg="亲，你要花多少全品币去兑换?" errormsg="亲，不能透支哦" sucmsg=" " id="dou_ipt">
+                            <span class="Validform_checktip"></span>
+                            <div class="dou_tips">您有全品币<strong id="coin">{$u_user_rpoint}</strong>元，可兑换全品豆<strong>{$u_user_rpoint*100}</strong>个</div>
+                        </div>
+                        <div class="fm_item dou_item">
+                            <label class="lable_middle">获得全品豆</label>
+                            <strong class="exchange_dou">0</strong>个
+                        </div>
+                        <div class="fm_item">
+                            <input type="submit" value="下一步" class="btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="warms_tips">
+                    <h3>温馨提示</h3>
+                    <p>1.全品豆只能通过全品币兑换，1全品币=100全品豆。</p>
+                    <p>2.每年可兑换的全品豆上限为10000个。</p>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+
+    <!-- end底部信息 -->	
+</body>
+</html>

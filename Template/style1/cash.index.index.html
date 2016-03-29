@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>我的优惠券_财富中心_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/header.css" />
+        <link  type="text/css" rel="stylesheet" href="style_css/login.css" />
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/login.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <div id="cover"></div>
+        <!-- HTML_TOP -->
+        <!-- 顶部区域开始 -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">我的优惠券</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+                <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons crt_pay"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <div class="order_lst">
+                    <h2 class="order_tt">我的优惠券</h2>
+                    <div class="order_tab">
+                        <a href="/Cash/Index/index" class="crt">可用优惠券</a>
+                        <a href="/Cash/Index/index/state/1" >已使用优惠券</a>
+                        <a href="/Cash/Index/index/state/2">已过期优惠券</a>
+                    </div>
+                    <div class="pay_tb exchange_tb">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <!--                                    <th width="130">编号</th>-->
+                                    <th width="120">类别</th>
+                                    <th width="150">面值</th>
+                                    <th width="200">有效期</th>
+                                    <th width="150">来源</th>
+                                    <th>使用规则</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <foreach name="list" item="vo">
+                                <tr>
+                                    <!--                                    <td>1000000000</td>-->
+                                    <td>{$vo.log_typename}</td>
+                                    <td>{$vo.log_price}</td>
+                                    <td><span class="buytime" >{$vo.log_endtime}</span></td>
+                                    <if condition="$vo[log_type] eq 1">
+                                    <td><a href="{$cash_url}" target="_blank">{$vo.log_from}</a></td>
+                                    <else />
+                                    <td><a href="http://pay.canpoint.net/payment/recharge/online" target="_blank">{$vo.log_from}</a></td>
+                                    </if>
+                                    <td>单笔订单金额满{$vo.log_where}元</td>
+                                </tr>
+                            </foreach>
+                            <!--                                <tr>
+                                                                <td>1000000000</td>
+                                                                <td>实体券</td>
+                                                                <td>50.00</td>
+                                                                <td><span class="buytime" >2015-03-27 09:23:54</span></td>
+                                                                <td><a href="" target="_blank">活动一</a></td>
+                                                                <td>单笔订单金额满500元</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1000000000</td>
+                                                                <td>实体券</td>
+                                                                <td>50.00</td>
+                                                                <td><span class="buytime" >2015-03-27 09:23:54</span></td>
+                                                                <td><a href="" target="_blank">活动一</a></td>
+                                                                <td>单笔订单金额满500元</td>
+                                                            </tr>-->
+                            </tbody>
+                        </table>
+                        <div class="page" style="margin-bottom:10px;">
+                            <div class="pagelist">
+                                {$page}
+                            </div>
+                            <!-- 无记录时的状态 -->
+                            <!-- <div class="noresult">
+                                    <img src="style_img/v4_img/noresult.png">
+                                    <p>暂无记录</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+
+    <!-- end底部信息 -->	
+</body>
+</html>

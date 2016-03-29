@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/wealth.css?v={$timestamp
+}">
+    <script src="style_js/jquery-1.11.0.js" type="text/javascript"></script>
+    <script src="style_js/Validform v5.3.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="style_js/tab.js"></script>
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+    <title>结算中心</title>
+</head>
+<body>
+<div id="wrapper">
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <style type="text/css">section{top: 0px;}</style>
+    <php>
+        }
+        else
+        {
+    </php>
+    <!-- HTML_TOP -->
+    <php>
+        }
+    </php>
+    <section>
+        <div class="matter">
+            <form action="" method="post" id="payform">
+                <div class="big">
+                    <div class="order">
+                        <ul>
+                            <li>订单提交成功，请尽快支付！</li>
+                            <li>订单号：<span>{$Card}</span></li>
+                        </ul>
+                        <p>请您在订单生成后<span>24小时</span>内完成支付，逾期订单自动取消</p>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="host">
+                        <h3>全品币</h3>
+                        <p>可用余额：{$u_user_rpoint}<span>使用全品劵：<strong>{$total_price}</strong>元</span></p>
+                    </div>
+                    <div class="dash">
+                        <ul>
+                            <li>全品币支付：-{$total_price}</li>
+
+                        </ul>
+                        <p>应付金额：<span>{$total_price}</span>元
+                            <if condition="($need_rpoint eq 0) AND ($total_price neq 0)">
+                            <a href="/payment/recharge/online" class="btn">余额不足，去充值</a>
+                            <else />
+
+                            <input type="hidden" value="{$total_price}" name="need_rpoint">
+                            <input type="hidden" value="{$total_price}" name="total_price">
+                            <input type="hidden" value="{$Card}" name="card">
+                            <input type="hidden" value="{$_SESSION[user][0]['u_guid']}" name="guid">
+                            <input type="button" value="立即支付" class="btn" onclick="payForm(this);">
+                        </if>
+                        </p>
+                    </div>
+
+                    <div class="main">
+                        <h4>所购微课</h4>
+                        <ul class="myul">
+                            <li class="lis">微课</li>
+                            <li class="lis1">价格(元)</li>
+                        </ul>
+                        <ul class="example" style="border:none;">
+                            <li class="mydl">
+                                <dl>
+                                    <a target="_blank" href="http://wk.canpoint.net/video/v/{$keList['keid']}.html" >
+                                    <dt><img src="{$keList['image']}"></dt>
+                                    <dd>{$keList['plist_productname']}</a>
+                                        <span>{$keList['cate_01']}</span><span>{$keList['cate_02']}</span>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="price">{$keList['plist_price']}</li>
+                        </ul>
+                        <div style="border-bottom:1px solid #ccc;clear:both;position:relative;top:2em;margin-bottom:0.5em"></div>
+                    </div>
+                  </div>
+            </form>
+        </div>
+        </br></br></br></br></br>
+        <!-- 分页 -->
+    </section>
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.weixin.html"/>
+    <php>
+        }
+        else
+        {
+    </php>
+    <include file="./Template/style2/ainc.foot.html"/>
+    <php>
+        }
+    </php>
+</div>
+</body>
+<html>

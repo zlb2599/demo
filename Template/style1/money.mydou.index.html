@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>我的全品豆_财富中心_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">我的财富</span>&gt;
+            <span class="pos_small">我的全品豆</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+               <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay crt_pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <div class="my_pay_lst pay_lst_top">
+                    <h2 class="pay_tt">我的全品豆</h2>
+                    <div class="pay_top_l">
+                        <ul>
+                            <li>
+                                <div class="pay_lst_l">
+                                    <img src="style_img/v4_img/pay3.png">
+                                </div>
+                                <div class="pay_lst_r">
+                                    <span>全品豆</span>
+                                    <strong>{$u_user_qdou}</strong>
+                                    <a href="/change/index/index" class="btn btn20">兑换</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pay_top_r">
+                        <div class="achieve_tt"></div>
+                        <ol class="achieve_lst dou_lst">
+                            <foreach name="retu" item="vo" key="k">
+                            <li <if condition="$vo['yn'] eq 'Y'"> class="achieve_lsts{$k} finish_lsts{$k}" <else /> class="achieve_lsts{$k}" </if>>
+                                <div class="achieve_tips">
+                                    {$vo['tip']}
+                                </div>
+                            </li>
+                            </foreach>
+<!--                            <li class="achieve_lsts1 finish_lsts1">
+                                <div class="achieve_tips">
+                                    游学者：获得的全品豆累计达到 2000个即可点亮此里程碑
+                                </div>
+                            </li>
+                            <li class="achieve_lsts2 finish_lsts2">
+                                <div class="achieve_tips">
+                                    俊才：获得的全品豆累计达到 5000个即可点亮此里程碑
+                                </div>
+                            </li>
+                            <li class="achieve_lsts3 finish_lsts3">
+                                <div class="achieve_tips">
+                                    智者：获得的全品豆累计达到 10000个即可点亮此里程碑
+                                </div>
+                            </li>
+                            <li class="achieve_lst4s finish_lsts4">
+                                <div class="achieve_tips">
+                                    尊者：获得的全品豆累计达到 50000个即可点亮此里程碑
+                                </div>
+                            </li>
+                            <li class="achieve_lst5s finish_lsts5">
+                                <div class="achieve_tips">
+                                    大智者：获得的全品豆累计达到 100000个即可点亮此里程碑
+                                </div>
+                            </li>-->
+                        </ol>
+                    </div>
+                </div>
+                <div class="pay_tb">
+                    <div class="tb_tt">收支明细</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="400" class="thl">事项</th>
+                                <th width="150">收入（个）</th>
+                                <th width="150">支出（个）</th>
+                                <th width="200">时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <foreach name="list" item="vo">
+                            <tr>
+                                <td><span class="left">{$vo['note']}</span></td>
+                                <td><span class="income_btn" ><?php if($vo['val']>0){ echo "+".intval($vo['val']); }?></span></td>
+                                <td>
+                                    <span class="expend_btn" ><?php if($vo['val']<0){ echo intval($vo['val']); }?></span>
+                                </td>
+                                <td>{$vo['date']}</td>
+                            </tr>
+                            </foreach>
+                        </tbody>
+                    </table>
+                    <div class="page">
+                        <div class="pagelist">
+                            {$page}
+                        </div>
+                        <!-- 无记录时的状态 -->
+                        <!-- <div class="noresult">
+                                <img src="style_img/v4_img/noresult.png">
+                                <p>暂无记录</p>
+                        </div> -->
+                    </div>
+                    <div class="tips_pos">
+                        <!-- 提示框 -->
+                        <div class="tips">
+                            <div class="tips_top">提示<span class="close">×</span></div>
+                            <div class="tips_con">
+                                <div class="tips_con_icon"></div>
+                                <div class="tips_con_r">
+                                    <h4>您确定要删除该订单吗？</h4>
+                                    <p>该订单删除后，请到订单回收站里查看。</p>
+                                </div>
+                            </div>
+                            <div class="tips_ft">
+                                <input type="button" value="取消"class="btn close">
+                                <input type="button" value="确定" class="btn sub_btn">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+    
+    <!-- end底部信息 -->	
+</body>
+</html>

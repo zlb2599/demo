@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>我的全品券_财富中心_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">我的财富</span>&gt;
+            <span class="pos_small">全品券</span>
+        </div>
+        <div id="container">
+            <div class="pay_left_side">
+                <div class="user_info">
+                    <a target="_blank" href="http://{$u_guid}.u.canpoint.net">
+                        <img src="{$avatar_file_url}">
+                        <span>{$u_nick_name}</span>
+                    </a>
+                    <p>每天都是新开始，微笑加油哦！</p>
+                </div>
+                <ul>
+                    <li><a href="/money/index/index" class="pay crt_pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+                    <li><a href="/order/index/index" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+                    <li><a href="/payment/recharge/online" class="recharge"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+                    <li><a href="/change/index/index" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+                    <li><a href="/cash/index/index" class="coupons"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+                </ul>
+            </div>
+            <div class="pay_right_side">
+                <div class="my_pay_lst pay_lst_top">
+                    <h2 class="pay_tt">我的全品券</h2>
+                    <div class="pay_top_l">
+                        <ul>
+                            <li>
+                                <div class="pay_lst_l">
+                                    <img src="style_img/v4_img/pay4.png">
+                                </div>
+                                <div class="pay_lst_r">
+                                    <span>全品券</span>
+                                    <strong>{$u_user_fpoint}</strong>
+                                    <a href="/payment/recharge/card" class="btn btn20">充值</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pay_top_r ticket">
+                        <div class="achieve_tt"><span>2015</span></div>
+                        <div class="ticket_times">剩余：<strong>{$nzhi}</strong>次</div>
+                        <div class="ticket_times">已用：<strong>{$yzhi}</strong>次</div>
+                        <div class="ticket_times">年度充值次数上限：10次</div>
+                    </div>
+                </div>
+                <div class="pay_tb">
+                    <div class="tb_tt">收支明细</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="400" class="thl">事项</th>
+                                <th width="150">收入（元）</th>
+                                <th width="150">支出（元）</th>
+                                <th width="200">时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <foreach name="list" item="vo">
+                            <tr>
+                                <td><span class="left">{$vo['note']}</span></td>
+                                <td><span class="income_btn" ><if condition="$vo['val'] gt 0">+{$vo['val']}</if></span></td>
+                                <td>
+                                    <span class="expend_btn" ><if condition="$vo['val'] lt 0">{$vo['val']}</if></span>
+                                </td>
+                                <td>{$vo['date']}</td>
+                            </tr>
+                            </foreach>
+                        </tbody>
+                    </table>
+                    <div class="page">
+                        <div class="pagelist">
+                            {$page}
+                        </div>
+                        <!-- 无记录时的状态 -->
+                        <!-- <div class="noresult">
+                                <img src="style_img/v4_img/noresult.png">
+                                <p>暂无记录</p>
+                        </div> -->
+                    </div>
+                    <div class="tips_pos">
+                        <!-- 提示框 -->
+                        <div class="tips">
+                            <div class="tips_top">提示<span class="close">×</span></div>
+                            <div class="tips_con">
+                                <div class="tips_con_icon"></div>
+                                <div class="tips_con_r">
+                                    <h4>您确定要删除该订单吗？</h4>
+                                    <p>该订单删除后，请到订单回收站里查看。</p>
+                                </div>
+                            </div>
+                            <div class="tips_ft">
+                                <input type="button" value="取消"class="btn close">
+                                <input type="button" value="确定" class="btn sub_btn">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+    
+    <!-- end底部信息 -->	
+</body>
+</html>

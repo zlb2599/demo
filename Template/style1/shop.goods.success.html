@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>实物兑换商品详情_兑换中心_全品学堂</title>
+    <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    <meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+    <link type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+    <script type="text/javascript" src="style_js/v4_pay.js"></script>
+</head>
+<body>
+<div id="cover"></div>
+<!-- HTML_TOP -->
+<!-- 顶部区域开始 -->
+<div class="position pos_exchange">
+    <i class="cur_icon"></i>
+    <a href="http://e.canpoint.net/goods/index/goodslist/
+"><span>兑换中心</span></a>&gt;<a href="http://e.canpoint.net/goods/index/goodslist/
+"><span>实物兑换</span></a>&gt;<span>商品清单</span>
+</div>
+<div id="container">
+    <div class="main">
+        <div class="pay_fm">
+            <div class="exchange_fm">
+                <div class="exchange_suc_l">
+                    <i class="pay_icon"></i>
+                </div>
+                <div class="exchange_suc_r">
+                    <p class="lst1">恭喜您，兑换成功！</p>
+
+                    <p class="lst2">您的订单号是： <strong>{$orderInfo.order_num}</strong>本次兑换信息可在财富中心的交易记录中查询到。</p>
+
+                    <p class="lst4"><a href="/order/index/index">查看我的订单</a></p>
+
+                    <p class="lst3">赶快把这次兑换分享给你的小伙伴吧！</p>
+
+                    <div class="exchange_share">
+                        <div class="bdsharebuttonbox">
+                            <!--<a title="分享到学社" href="#" class="bds_xueshe" data-cmd="bds_xueshe">学社</a>-->
+                            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone">QQ空间</a>
+                            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信</a>
+                            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">新浪微博</a>
+                        </div>
+                        <script>
+                            window._bd_share_config = {
+                                "common": {
+                                    "bdSnsKey": {},
+                                    "bdText": '我的学习我做主！学习还能得奖品！全品学堂精美礼品超值兑换，有豆就是任性！快去看看吧~~~',
+                                    "bdDesc": '我的学习我做主！学习还能得奖品！全品学堂精美礼品超值兑换，有豆就是任性！快去看看吧~~~',
+                                    "bdMini": "2",
+                                    "bdUrl": 'http://e.canpoint.net/goods/index/goodsinfo?id={$goods_info.goods_id}',
+                                    "bdMiniList": false,
+                                    "bdPic": "http://adm.canpoint.net/goods/{$goods_info.goods_img}",
+                                    "bdStyle": "0",
+                                    "searchPic": false,
+                                    "bdSize": "16"
+                                },
+                                "share": {},
+                            };
+                            with (document)
+                                0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="pay_tb order_tb">
+                <h5 class="pay_tt" style="height: 45px;">商品清单</h5>
+                <table class="tb_border">
+                    <thead>
+                    <tr>
+                        <th width="435" class="th1">商品名称</th>
+                        <th width="175">商品数量</th>
+                        <th width="175">使用财富</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a target="_blank"  class="video_link" style="color: #333;">
+                                <img src="http://adm.canpoint.net/goods/{$goods_info.goods_thumb}" width="80" height="60">{$goods_info.goods_name}
+                            </a>
+                        </td>
+                        <td>1</td>
+                        <td>{$orderInfo['order_dou']}全品豆</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部信息 -->
+<div class="clear"></div>
+<include file="./Template/style1/ainc.foot.html" />
+
+<!-- end底部信息 -->
+</body>
+</html>

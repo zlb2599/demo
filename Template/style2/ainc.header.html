@@ -1,0 +1,19 @@
+<script>
+    function huitui()
+    {
+        javascript:history.go(-1);
+    }
+
+</script>
+
+<header>
+    <div class="left"  onclick="huitui()"  ></div>
+    <div class="middle">财富中心</div>
+    <div id="right">
+    <if condition="$_SESSION['user'][0]['u_guid']" >
+        <a href="http://my.canpoint.net"  ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a>
+    <else/>
+        <a href="http://e.canpoint.net/login"  ><img src="http://img1.canpoint.net/g1/M00/09/C3/oYYBAFXbypWAbFzsAAAJEnMkcms646.png"></a>
+    </if>
+</div>
+</header>

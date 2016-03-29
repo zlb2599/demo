@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>订单详情_我的订单_全品学堂</title>
+    <meta name="description" content="全品学堂" />
+    <meta name="keywords" content="全品学堂" />
+    <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+    <script type="text/javascript" src="style_js/v4_scroll.js"></script>
+    <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    <script type="text/javascript">
+        var scrollNum = 5;
+    </script>
+</head>
+<body>
+<!-- 遮罩层开始 -->
+<div id="cover"></div>
+<!-- 遮罩层结束 -->
+
+<!-- 顶部区域开始 -->
+<!-- HTML_TOP -->
+
+<div class="position">
+    <i class="cur_icon"></i>
+    <a href="/"><span>财富中心</span></a> &gt;
+    <a href="/order/index/index"><span class="pos_small">我的订单</span></a> &gt;
+    <span class="pos_small">订单详情</span>
+</div>
+<div id="container">
+    <div class="main">
+        <div class="order_top">
+            <h2></i>订单详情</h2>
+            <p>订单号：<strong>{$info['order_num']}</strong></p>
+            <p>状&nbsp;&nbsp;&nbsp;态：
+                <if condition="$info['order_status'] eq 1">
+                    <strong>未支付</strong>
+                    <p><a href="/order/index/gotopay/order/{$info['order_num']}" class="btn">去支付</a></p>
+                    <elseif condition="$info['order_status'] eq 2"/>
+                    <span>已完成</span>
+                    <elseif condition="$info['order_status'] eq 3"/>
+                    <em>已取消</em>
+                </if>
+            </p>
+
+        </div>
+        <div class="pay_tb order_tb">
+            <table class="tb_border">
+                <thead>
+                <tr>
+                    <th width="435" class="th1">微课</th>
+                    <th width="175">学段</th>
+                    <th width="175">学科</th>
+                    <th width="175">价格（元）</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name='plist' item='vo'>
+                    <tr>
+                        <td>
+                            <if condition="($info['order_type'] eq 1) OR ($info['order_type'] eq 3)">
+                                <a href="http://wk.canpoint.net/video/v/{$vo['keid']}.html" class="video_link">
+                                    <else />
+                                    <a href="http://wk.canpoint.net/pack/p/{$packid}/v/{$vo['keid']}.html" class="video_link">
+                            </if>
+                            <img src="{$vo['image']}" width="80" height="60">
+                            {$vo['plist_productname']}
+                            </a>
+                        </td>
+                        <td>{$vo['cate_01']}</td>
+                        <td>{$vo['cate_02']}</td>
+                        <td>{$vo['plist_price']}</td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+            <div class="page" style="margin-bottom:10px;">
+                <div class="pagelist">
+                    {$page}
+                </div>
+                <!-- 无记录时的状态 -->
+                <!-- <div class="noresult">
+                        <img src="style_img/v4_img/noresult.png">
+                        <p>暂无记录</p>
+                </div> -->
+            </div>
+        </div>
+<!--        <div class="like_video view_video">
+            <div class="video_tt"><h3 class="tt">猜你喜欢</h3></div>
+            <div class="tab_btn">
+                <foreach name='cate2' item='vo' key='k'>
+                    <if condition='$k neq 0'>
+                        /
+                    </if>
+                    <a href="/order/index/like/nj/{$cate1}/xk/{$vo['id']}">{$vo['x_ke']}</a>
+                </foreach>
+            </div>
+            <div class="video_con">
+                <div class="video_btn pre"></div>
+                <div class="video_btn next"></div>
+                <div class="video_wrap" id="scroll">
+                    <ul>
+                        <foreach name='kearr' item='vo'>
+                            <li>
+                                <a href="http://wk.canpoint.net/video/v/{$vo.keid}.html">
+                                    <img src="{$vo['image']}" />
+                                    <span>{$vo.title}</span>
+                                </a>
+                                <p class="ptop"><strong>年级 : <a href="">{$vo['nj']}</a> </strong><span>学科 : {$vo['xk']}</span></p>
+                                <p class="pbottom"><strong>观看：<em>{$vo['ke_click']}</em>次</strong> <span>￥{$vo['x_price']}</span></p>
+                            </li>
+                        </foreach>
+
+                    </ul>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!-- 底部信息 -->
+<div class="clear"></div>
+<include file="./Template/style1/ainc.foot.html"/>
+
+<!-- end底部信息 -->
+</body>
+</html>

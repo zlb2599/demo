@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>已过期优惠券_我的优惠券_财富中心_全品学堂</title>
+	<meta name="description" content="全品学堂" />
+    <meta name="keywords" content="全品学堂" />
+	<link  type="text/css" rel="stylesheet" href="style_css/header.css" />
+    <link  type="text/css" rel="stylesheet" href="style_css/login.css" />
+    <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+	<script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="style_js/Validform v5.3.2.js"></script>
+	<script type="text/javascript" src="style_js/login.js"></script>
+	<script type="text/javascript" src="style_js/v4_pay.js"></script>
+</head>
+<body>
+	<div id="cover"></div>
+    <!-- HTML_TOP -->
+	<!-- 顶部区域开始 -->
+	<div id="top_out">
+		<div id="top">
+			<div class="login_before">
+				<div class="welcome" id="welcome_before">
+					<a href="#" class="vicon logo_user top_user"></a>
+					<div class="vicon top_grade">
+						<i class="vicon"></i>年级专区
+						<div class="menu_pulldown">
+							<a href="#">三年级专区</a>
+							<a href="#">四年级专区</a>
+							<a href="#">五年级专区</a>
+							<a href="#">六年级专区</a>
+							<a href="#">七年级专区</a>
+							<a href="#">八年级专区</a>
+							<a href="#">九年级专区</a>
+							<a href="#">中考</a>
+							<a href="#">高中</a>
+							<a href="#">高考</a>
+						</div>
+					</div>
+					<a href="#" class="top_user active">微课</a>
+					<a href="#" class="top_user">直播</a>
+					<a href="#" class="top_user">问答</a>
+					<a href="#" class="top_user">名师</a>
+				</div> 
+				<div class="search">
+					<form action="" method="post">
+						<input type="text" class="text" onBlur="if (value == '') {
+                    value = '老师名/课程名/知识点'}" onclick="if (this.value == '老师名/课程名/知识点')this.value = ''" value="老师名/课程名/知识点"/>
+						<input type="submit" class="submit" value="" />
+					</form>
+				</div>				
+				<div class="list">
+					<!-- nologin -->
+                    <div class="server_list ask_mobile">
+                        <a href="">问吧APP <i class="arrows_icon"></i></a>
+                        <div class="qrcode">
+                           <div class="qrcode_ct"></div>
+                           <p>扫一扫下载</p>
+                           <p>全品问吧APP</p>
+                        </div>
+                    </div>
+                    <div class="server_list logreg"><a href="">登录 / </a><a href="">注册</a></div>
+                    <!-- islogin -->
+                   	<!--  <div class="server_list notice">
+                        <a href="" class="notice_icon"><span class="notice_num">3</span></a>
+                    </div> 
+                    <div class="server_list header_user">
+                        <a href="" class="header_nick">
+                            <span>zhangmeiming</span>
+                            <img src="style_img/v4_img/account1.png" >
+                        </a>
+                        <div class="header_menu">
+                            <i class="arrows_icon"></i>
+                            <h4>正使用”全品学堂“帐号登录</h4>
+                            <ul class="header_nav">
+                                <li><a href="">我的学堂</a></li>
+                                <li><a href="">财富中心</a></li>
+                                <li><a href="">帐号设置</a></li>
+                                <li><a href="">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+				</div>
+				<!-- 登录框内容开始 -->
+		        <div id="login_border" >
+		            <form action="http://pay.canpoint.net/index/login/login" id="login">
+		                <a href="javascript:;" class="title">用户登录 <b  class="cuohao"></b></a>
+		                <p class="puname">
+		                    <input type="text" class="uname" name="user" placeholder ="邮箱/手机号/用户名" datatype="/^((\(\d{2,3}\))|(\d{3}\-))?1[3,8,5]{1}\d{9}$/ | e |/^[a-z0-9]{4,20}$/i"  nullmsg="请输入邮箱/手机号/用户名。" errormsg="输入有误，请重新填写" sucmsg=" " />
+		                </p> 
+		                <P class="pupwd"><input type="hidden" name="token" value="{$phpsessionid}" />
+		                    <input type="password" class="upwd" id="pwd" name="pwd" placeholder ="请输入密码" datatype="/^[a-zA-Z0-9]{6,18}$/"  nullmsg="请输入密码，区分大小写。" errormsg="账号和密码不匹配，请重新填写。"  sucmsg=" " />
+		                </P>
+		                <P class="pucode">
+		                    <input type="text" class="ucode" name="code"  placeholder ="请输入验证码" datatype="s" nullmsg=" 请输入验证码。" errormsg="输入有误，请重新填写。" sucmsg=" " 
+		ajaxurl="http://pay.canpoint.net/index/login/findchk_code/id/login_top/token/{$phpsessionid}"  />
+		                </P> 
+		                <p class="code_img"><img src='http://pay.canpoint.net/index/login/verify/id/login_top'  id='login_top' onClick='freshVerify("login_top")'/><a href="javascript:;" onClick='freshVerify("login_top")'>换一张</a></p>
+		                <p class="rember_pwd">
+		                    <input type="checkbox" class="checkbox" name="checkbox" value="1"/>
+		                    <span>自动登录</span>
+		                    <a href="/index/pass/find_user">忘记密码？</a>
+		                    <em class="safe">
+		                        为了确保安全的信息安全，请不要在网吧 或公用电脑上勾选此项。
+		                    </em>
+		                </p>
+		                <p class="message">账号或者密码输入有误</p>
+		                <p class="sbt_img"><input type="submit" class="sbt_img"  value="" /><span class="login_reg">还未注册？ 速速去 <a href="/index/register/register">注册</a> </span></p>
+	                    <p class="other_login">其他登录渠道：
+		                    <a href="/index/register/qq" target="_blank" class="qq"></a>
+		                   <!--  <a href="/Index/Register/sina" target="_blank" class="sina"></a>
+		                    <a href="#" class="renren" target="_blank"></a>  -->
+		                </p>
+		            </form>
+        		</div>
+		        <!-- 登录框内容结束 -->
+			</div>
+		</div>
+	</div>
+	<div class="position">
+		<i class="cur_icon"></i>
+		<span>财富中心</span> &gt;
+        <span class="pos_small">我的优惠券</span>
+	</div>
+	<div id="container">
+       	<div class="pay_left_side">
+       		<div class="user_info">
+       			<a href="">
+       				<img src="style_img/v4_img/pay1.jpg">
+       				<span>微笑天使</span>
+       			</a>
+       			<p>每天都是新开始，微笑加油哦！</p>
+       		</div>
+       		<ul>
+   				<li><a href="" class="pay"><i class="pay_icon"></i>我的财富 <i class="arrow"></i></a></li>
+   				<li><a href="" class="order"><i class="pay_icon"></i>我的订单<i class="arrow"></i></a></li>
+   				<li><a href="" class="recharge"><i class="pay_icon"></i>财富充值<i class="arrow"></i></a></li>
+   				<li><a href="" class="exchange"><i class="pay_icon"></i>财富兑换<i class="arrow"></i></a></li>
+   				<li><a href="" class="coupons crt_pay"><i class="pay_icon"></i>我的优惠券<i class="arrow"></i></a></li>
+   			</ul>
+       	</div>
+       	<div class="pay_right_side">
+       		<div class="order_lst">
+       			<h2 class="order_tt">我的优惠券</h2>
+       			<div class="order_tab">
+       				<a href="" >我的优惠券</a>
+       				<a href="" >已使用优惠券</a>
+       				<a href="" class="crt">已过期优惠券</a>
+       			</div>
+				<div class="pay_tb exchange_tb">
+       				<table>
+       					<thead>
+       						<tr>
+       							<th width="130">编号</th>
+       							<th width="120">类别</th>
+       							<th width="150">面值</th>
+       							<th width="200">有效期</th>
+       							<th width="150">来源</th>
+       							<th>状态</th>
+       						</tr>
+       					</thead>
+       					<tbody>
+       						<tr>
+       							<td>1000000000</td>
+       							<td>实体券</td>
+       							<td>50.00</td>
+       							<td><span class="buytime" >2015-03-27 09:23:54</span></td>
+       							<td><a href="" target="_blank">活动一</a></td>
+       							<td>已过期</td>
+       						</tr>
+       					</tbody>
+       				</table>
+       				<div class="page" style="margin-bottom:10px;">
+	                	<div class="pagelist">
+							<a href="#">上一页</a>
+							<a href="#" class="active">1</a>
+							<a href="#">2</a>
+							<a href="#">3</a>
+							<a href="#">下一页</a>
+						</div>
+						<!-- 无记录时的状态 -->
+						<!-- <div class="noresult">
+							<img src="style_img/v4_img/noresult.png">
+							<p>暂无记录</p>
+						</div> -->
+	                </div>
+       			</div>
+       		</div>
+       	</div>
+    </div>
+	<!-- 底部信息 -->
+	<div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+	<div class="footer">
+		<div class="navigation">
+			<div class="navtion_a">
+				<a href="#">关于我们</a>
+				<a href="#">联系我们</a>
+				<a href="#">服务协议</a>
+				<a href="#">留言板</a>
+				<a href="#" style="border-width:0;">全品教学网</a>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="champoin">
+	            <p>Copyright &copy; 2010-2014北京全品文化发展有限公司canpoint.net. All rights reserved. 京ICP备10032573号-9</p>	
+	        </div>
+		</div>
+	</div>
+	<!-- end底部信息 -->	
+</body>
+</html>

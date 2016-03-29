@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>微信支付_财富中心_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+        <meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css?2016-03-22" />
+        <script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="style_js/qrcode.js"></script>
+    </head>
+    <body>
+        <div id="cover"></div>
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+        <div class="position">
+            <i class="cur_icon"></i>
+            <span>财富中心</span> &gt;
+            <span class="pos_small">微信支付</span>
+        </div>
+        <div id="container">
+            <div class="wx_wrap">
+                <div class="wx_info">
+                    <p class="info_lst1">请您及时付款，以便交易顺利进行！订单编号：{$ordernum}  <span class="recharge_sum">支付金额：<strong>{$price}</strong>元</span></p>
+                    <p class="info_lst2">支付过程中，请勿关闭当前页面，以免支付出现错误。</p>
+                </div>
+                <div class="wx_pay">
+                    <h2 class="wx_pay_tt">微信支付</h2>
+<!--                           			<img src="{$url2}" class="wx_qrcode"/>-->
+                    <div id="qrcode" class="wx_qrcode"></div>
+                    <div class="wx_icon"></div>
+                    <div class="wx_richscan"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+    <script>
+        var url = "{$url2}";
+        var ordernum = "{$ordernum}";
+
+        function viewInExplorerStatus() {
+//        $.post("/payment/recharge/wx_notify", {ordernum: ordernum}, function(data) {
+//            alert(data);
+//        });
+            $.ajax({
+                //提交数据的类型 POST GET
+                type: "POST",
+                //提交的网址
+                url: "/shop/buy/wx_notify",
+                //提交的数据
+                data: {ordernum: ordernum},
+                //返回数据的格式
+                datatype: "text", //"xml", "html", "script", "json", "jsonp", "text".
+
+                //成功返回之后调用的函数             
+                success: function(data) {
+                    if (data == 'SUCCESS') {
+                        window.location = '/shop/buy/wx_success?ordernum=' + ordernum;
+                    }
+                }
+
+            })
+        }
+
+        window.onload = function() {
+            setInterval("viewInExplorerStatus()", 2000);
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                width: 256, //设置宽高
+                height:256
+            });
+            qrcode.makeCode(url);
+        }
+
+
+    </script>
+    <!-- end底部信息 -->	
+</body>
+</html>

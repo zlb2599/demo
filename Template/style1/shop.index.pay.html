@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>余额支付_结算中心_全品学堂</title>
+        <meta name="keywords" content="全品学堂，全品问吧，中小学在线学习平台,全品，全品教学网,全品高考网,全品中考网"/>
+    	<meta name="description" content="全品学堂是中小学数字化学习平台，产品有微课、直播课、全品问吧、学社、班嗨、动漫教室等，涵盖了小学三年级至高三年级的主要课程，是中国在线教育的生力军。-全品学堂"/>
+        <link  type="text/css" rel="stylesheet" href="style_css/v4_pay.css" />
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="http://e.canpoint.net/style_js/Validform v5.3.2.js"></script>
+        <script type="text/javascript" src="style_js/v4_pay.js"></script>
+    </head>
+    <body>
+        <!-- 遮罩层开始 -->
+        <div id="cover"></div>
+        <!-- 遮罩层结束 -->
+
+        <!-- 顶部区域开始 -->
+        <!-- HTML_TOP -->
+
+        <div class="position pos_car">
+            <i class="cur_icon pay_icon"></i>
+            <span>结算中心</span>
+            <div class="pos_car_r">
+                <!-- <strong>我的购物车 </strong> -->
+                <strong class="crt">余额支付  </strong>
+                <strong>完成支付   </strong>
+            </div>
+        </div>
+        <div id="container">
+            <div class="main">
+                <form action="" method="post" id="payform">
+                    <div class="pay_fm">
+                        <div class="pay_lst1">订单提交成功，请尽快支付！<span>订单号：{$Card}</span></div>
+                        <div class="pay_lst2">请您在订单生成后<em>24小时</em>内完成支付，逾期订单自动取消</div>
+                        <div class="pay_lst3">
+                            <h3>全品币</h3>
+                            <p>可用余额：{$u_user_rpoint}<span>使用全品币：<strong>{$total_price}</strong>元</span></p>
+                        </div>
+                        <!--                        <div class="pay_lst4">共 <strong>{$order_productnums}</strong>节微课，应付金额：<span>{$total_price} 元</span></div>-->
+
+                        <div class="pay_lst4 line">全品币支付：<span>-{$total_price} 元</span></div>
+                        <div class="pay_lst6">
+                            <span>应付总额：<strong>{$total_price}</strong> 元</span>
+                            <if condition="($need_rpoint eq 0) AND ($total_price neq 0)">
+                                <a href="/payment/recharge/online" class="btn">余额不足，去充值</a>
+                                <else />
+                                <!--<input type="hidden" value="{$need_fpoint}" name="need_fpoint">-->
+                                <input type="hidden" value="{$total_price}" name="need_rpoint">
+                                <input type="hidden" value="{$total_price}" name="total_price">
+                                <input type="hidden" value="{$Card}" name="card">
+                                <input type="hidden" value="{$_SESSION[user][0]['u_guid']}" name="guid">
+                                <input type="button" value="立即支付" class="btn" onclick="payForm(this);">
+                            </if>
+                            <!--  -->
+                        </div>
+                        <div class="pay_tb order_tb">
+                            <h5 class="pay_tt">所购微课</h5>
+                            <table class="tb_border">
+                                <thead>
+                                    <tr>
+                                        <th width="435" class="th1">微课</th>
+                                        <th width="175">学段</th>
+                                        <th width="175">学科</th>
+                                        <th width="175">价格（元）</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a target="_blank" href="http://wk.canpoint.net/video/v/{$keList['keid']}.html" class="video_link">
+                                                <img src="{$keList['image']}" width="80" height="60">
+                                                {$keList['plist_productname']} 
+                                            </a>
+                                        </td>
+                                        <td>{$keList['cate_01']}</td>
+                                        <td>{$keList['cate_02']}</td>
+                                        <td>{$keList['plist_price']}</td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div class="clear"></div>
+    <include file="./Template/style1/ainc.foot.html"/>
+    <!-- end底部信息 -->	
+</body>
+</html>

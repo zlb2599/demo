@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"
+          id="viewport">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="style_css/reset.css?v={$timestamp
+}">
+    <link rel="stylesheet" type="text/css" href="style_css/goods.css?v={$timestamp
+}">
+    <script type="text/javascript" src="style_js/jquery-1.11.0.js"></script>
+    <title>订单详情</title>
+</head>
+<body>
+<div class="wrapper">
+    <php>
+        if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+        {
+    </php>
+    <style type="text/css">section{top: 0px;}</style>
+    <php>
+        }
+        else
+        {
+    </php>
+    <!-- HTML_TOP -->
+    <php>
+        }
+    </php>
+    <section>
+        <div class="order_details">
+            <h3 class="indent">订单详情</h3>
+
+            <p>订单号：<strong>{$info['order_num']}</strong></p>
+
+            <p>状&emsp;态：
+                <if condition="$info['order_status'] eq 1">
+                <strong>未支付</strong>
+                <elseif condition="$info['order_status'] eq 2" /><span>已完成</span>
+                </if>
+            </p>
+            <if condition="$info['order_status'] eq 1">
+                 <a href="/shop/goods/pay?card={$info['order_num']}" class="btn">去支付</a>
+            </if>
+                <!-- <if condition="$info['order_status'] eq 2">
+                    <span>已完成</span>
+                    <else/>
+                    <a href="/shop/goods/pay?card={$info['order_num']}">去支付</a>
+                </if> -->
+            </p>
+            <if condition="$info['order_status'] eq 2">
+                <h3 class="consignee">收货人信息</h3>
+
+                <div class="message" style="background:none;">
+                    <div class="fm_item infom">
+                        <label>姓名&nbsp;：</label>
+                        <span class="user_info"  style="margin-top:0px;">{$list['consignee']}</span>
+                    </div>
+                    <div class="fm_item infom">
+                        <label>手机&nbsp;：</label>
+                        <span class="user_info"  style="margin-top:0px;">{$list['mobile']}</span>
+                    </div>
+                    <div class="fm_item infom">
+                        <label>地址&nbsp;：</label>
+                        <span class="user_info" style="margin-top:0px;">{$list['address']}</span>
+
+                    </div>
+
+                    <h4>物流：
+                        <if condition="$list['shipping_status'] neq 1"><em style="padding-left:30px;">未发货</em>
+                            <elseif condition="$list['shipping_status'] eq 1"/>
+                            <strong>已发货</strong></if>
+                    </h4>
+                </div>
+
+        </div>
+        </if>
+        <div class="goods_msg">
+            <ul class="msg">
+                <li class="name title">名称</li>
+                <li class="number title">数量</li>
+                <li class="money title">财富</li>
+            </ul>
+            <ul class="msg">
+                <li class="name">{$data['goods_name']}</li>
+                <li class="number">{$data['goods_number']}</li>
+                <li class="money">{$data['goods_price']}全品豆</li>
+            </ul>
+        </div>
+</section>
+<php>
+    if( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+    {
+</php>
+<include file="./Template/style2/ainc.foot.weixin.html"/>
+<php>
+    }
+    else
+    {
+</php>
+<include file="./Template/style2/ainc.foot.html"/>
+<php>
+    }
+</php>
+</div>
+</body>
+<html>

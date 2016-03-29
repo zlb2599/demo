@@ -1,0 +1,15 @@
+<if condition="$count neq 0">
+<ul>
+    <foreach name='kearr' item='vo'>
+        <li>
+            <a href="http://wk.canpoint.net/video/v/{$vo.keid}.html">
+                <img src="{$vo['image']}" />
+                <span>{$vo.title}</span>
+            </a>
+            <p class="ptop"><strong>年级 : <a href="">{$vo['nj']}</a> </strong><span>学科 : {$vo['xk']}</span></p>
+            <p class="pbottom"><strong>观看：<em>{$vo['ke_click']}</em>次</strong> <span>￥{$vo['x_price']}</span></p>
+        </li>
+    </foreach>
+</ul>
+<else />
+</if>

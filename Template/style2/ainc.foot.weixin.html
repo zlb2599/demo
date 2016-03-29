@@ -1,0 +1,120 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<footer>
+    <div class="bottom">
+        <a href="http://e.canpoint.net"><dl>
+            <dt><img src="style_img/home_03.png"></dt>
+            <dd>主页</dd>
+        </dl></a>
+        <a href="http://wk.canpoint.net/home/pack/index1"><dl>
+            <dt><img src="style_img/video_03.png"></dt>
+            <dd>课程</dd>
+        </dl></a>
+        <a href="http://ms.canpoint.net"><dl>
+            <dt><img src="style_img/ren.png"></dt>
+            <dd>名师</dd>
+        </dl></a>
+        <a href="http://e.canpoint.net/home/index/app"><dl>
+            <dt><img src="style_img/ask.png"></dt>
+            <dd>问吧</dd>
+        </dl></a>
+        <a href="http://my.canpoint.net"><dl>
+            <dt><img src="style_img/My1_03.png" style="width:18px;height:20px;"></dt>
+            <dd class="col" style="padding-top:0.5em;">我的</dd>
+        </dl></a>
+    </div>
+</footer>
+<script type="text/javascript">
+    $(function(){
+        $("#bottom dl dd a").on("click",function(){
+            var index=$(this).index();
+            $("#bottom dl dd a").removeClass('col');
+            $(this).addClass('col');
+        });
+        /**
+     * 财富充值-在线充值-充值账号切换效果
+     */
+    var oFmItem = $('.fm_item'),
+            oUacc = oFmItem.find('.account'),
+            oToggleBtn = oFmItem.find('.toggle_btn');
+    oUacc.eq(1).hide();
+    oToggleBtn.click(function () {
+        var index = $(this).index('.toggle_btn');
+        oToggleBtn.removeClass('crt');
+        $(this).addClass('crt');
+        oUacc.hide();
+        oUacc.eq(index).show();
+    });
+
+        /**
+     * 财富充值-在线充值-充值金额效果
+     */
+    var oType = $('.fm_item span.type'), //充值金额按钮
+            oCoinText = $('.fm_item strong.coin'),
+            oOtherItem = $('.recharge_fm .other_item'), //其他对象
+            oOtherIpt = oOtherItem.find('.other_ipt'), //其他金额
+            oHdIpt = $('#coin_hdipt'), //金额隐藏域
+            reg = /^([1-9]\d*(\.\d{1,2})?|(0\.\d{1,2}))$/;//大于零的数
+    oType.click(function () {
+        var index = $(this).index();
+        oType.removeClass('crt');
+        $(this).addClass('crt');
+        if (index < 6) {//选择前5个按钮
+            var iCurCoin = parseFloat($(this).text());//当前选择的金额
+            toFixeNum(iCurCoin);
+            oOtherItem.hide();
+        } else {//选择第6个按钮
+            oOtherItem.show();
+            toFixeNum(0);
+        }
+    });
+    oOtherIpt.keyup(function () {
+        var coinMoney = $(this).val();
+        checkNumCoin($(this), coinMoney);
+    });
+    /**
+     * [checkNumCoin 全品币数字验证函数]
+     * @param  {[type]} curObj    [当前输入对象]
+     * @param  {[type]} coinMoney [当前输入金额]
+     */
+    function checkNumCoin(curObj, coinMoney) {
+        if (coinMoney == '') {
+            oCoinText.text(toFixeNum(0));
+        }
+        if (!isNaN(coinMoney)) {//是数字
+            var iPoint = coinMoney.indexOf('.'); //点的位置
+            if (iPoint > 0) { //是小数
+                var ihStr = coinMoney.substring(iPoint + 1, iPoint + 3);
+                var ifStr = coinMoney.substring(0, iPoint + 1);
+                var iNewCoin = parseFloat(ifStr + ihStr);
+                if (ihStr) {
+                    curObj.val(ifStr + ihStr);
+                    if (reg.test(ifStr + ihStr)) {
+                        toFixeNum(iNewCoin);
+                    }
+                }
+            } else {//不是小数
+                if (reg.test(coinMoney)) {
+                    toFixeNum(coinMoney);
+                }
+            }
+        } else {//不是数字
+            oCoinText.text(toFixeNum(0));
+        }
+    }
+     /**
+     * [toFixeNum 保留两位小数]
+     * @param  {[type]} num [处理数]
+     * @return {[type]}     [返回数]
+     */
+    function toFixeNum(num) {
+        var newnum = new Number(num);
+        newnum = newnum.toFixed(2);
+        oCoinText.text(newnum);
+        oHdIpt.val(newnum);
+    }
+
+    })
+</script>
+<div style="display:none;">
+<script src="http://s4.cnzz.com/z_stat.php?id=1254034781&web_id=1254034781 " type="text/javascript" ></script> 
+</div>

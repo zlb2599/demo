@@ -1,0 +1,6 @@
+集成时请注意：
+本文件log.txt请不要删除。
+该文本用于写日志函数。
+执行日期：20140414143252
+responseTxt=false
+ return_url_log:isSign=true,buyer_email=15011368173&buyer_id=2088702710410895&exterface=create_direct_pay_by_user&is_success=T&notify_id=RqPnCoPT3K9%2Fvwbh3I74mP8jEuScig9XOCIuKQxVumjFRxHACmHWiBxNwCUfdc6SkESD&notify_time=2014-04-08 13:40:59&notify_type=trade_status_sync&out_trade_no=PO0000000004&payment_type=1&seller_email=canpointedu@163.com&seller_id=2088011210193891&subject=全品学堂储值卡1元&total_fee=1.00&trade_no=2014040831423989&trade_status=TRADE_SUCCESS&sign=44bab80e6b082762a59178c582951b54&sign_type=MD5
